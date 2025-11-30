@@ -1,0 +1,38 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+
+/* Botones globales */
+
+.btn {
+    @include mix.btn-base(transparent,
+        vars.$color-primary-strong,
+        vars.$color-primary-strong );
+
+    &:hover {
+        background-color: vars.$color-primary-strong;
+        color: vars.$white;
+    }
+}
+
+.btn-dark {
+    @include mix.btn-base(vars.$color-primary,
+        vars.$white,
+        vars.$color-primary );
+
+    &:hover {
+        background-color: vars.$color-primary-strong;
+        border-color: vars.$color-primary-strong;
+        color: vars.$white;
+    }
+}
+
+.btn-outline {
+    @include mix.btn-base(transparent,
+        vars.$color-primary-strong,
+        vars.$color-primary-strong );
+
+    &:hover {
+        background-color: vars.$color-primary-strong;
+        color: vars.$white;
+    }
+}

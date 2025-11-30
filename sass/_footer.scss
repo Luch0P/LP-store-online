@@ -1,0 +1,75 @@
+@use "variables" as vars;
+
+/* FOOTER */
+
+.footer {
+    background-color: vars.$color-surface-alt;
+    color: vars.$color-heading;
+    padding: 1.8rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(vars.$color-border-subtle, 0.5);
+}
+
+.footer-content {
+    max-width: vars.$maxw;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    .text-muted {
+        color: vars.$color-text-muted;
+        font-size: 0.85rem;
+    }
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    a {
+        font-size: 0.85rem;
+        color: vars.$color-heading;
+
+        &:hover {
+            color: vars.$color-primary-strong;
+        }
+    }
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    a {
+        font-size: 1.1rem;
+        color: vars.$color-heading;
+
+        &:hover {
+            color: vars.$color-primary;
+        }
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}

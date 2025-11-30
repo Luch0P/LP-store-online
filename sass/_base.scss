@@ -1,0 +1,97 @@
+@use "variables" as vars;
+
+/* BASE / RESET GLOBAL */
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body global */
+body {
+    font-family: vars.$ff;
+    background-color: vars.$bg;
+    color: vars.$text;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Imágenes */
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* Titulares */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: vars.$color-heading;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Enlaces */
+a {
+    color: vars.$color-primary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: vars.$color-primary-strong;
+    }
+}
+
+/* Listas sin estilo */
+ul,
+li {
+    list-style: none;
+}
+
+/* Contenedor general */
+.container {
+    max-width: vars.$maxw;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Botones básicos */
+button,
+.btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: vars.$ff;
+}
+
+/* Inputs y formularios */
+input,
+textarea,
+select {
+    font-family: vars.$ff;
+    border-radius: vars.$radius;
+    border: 1px solid vars.$color-border-subtle;
+    padding: 0.5rem 0.75rem;
+
+    &::placeholder {
+        color: vars.$color-text-muted;
+    }
+}
+
+/* Tablas */
+table {
+    border-collapse: collapse;
+}
+
+/* Secciones */
+section {
+    width: 100%;
+}

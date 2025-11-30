@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400;600;700&display=swap");
+
+/* Tipografía */
+$ff: "Alan Sans", sans-serif;
+
+/* Fondos */
+$color-bg: #F3F6F9;
+$color-surface: #FFFFFF;
+$color-surface-alt: #E9DCC9;
+
+/* Texto */
+$color-text: #0F172A;
+$color-text-muted: #6B7280;
+$color-heading: #3A4F63;
+
+/* Acentos */
+$color-primary: #6F8FAF;
+$color-primary-strong: #3A4F63;
+$color-accent-soft: #F7C8B5;
+
+/* Bordes / sombras */
+$color-border-subtle: #D1D5DB;
+$shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+
+/* Dimensiones */
+$radius: 16px;
+$maxw: 1200px;
+
+/* Neutros */
+$white: #ffffff;
+$black: #000000;
+
+/* Alias */
+$bg: $color-bg;
+$text: $color-text;
