@@ -1,14 +1,18 @@
 /* Componentes base */
-@use "base";
-@use "buttons";
-@use "header";
-@use "footer";
-@use "cards";
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'header';
+@use 'footer';
+@use 'buttons';
+@use 'cards';
 
 /* Páginas */
-@use "home";
-@use "categoria1";
-@use "categoria2";
-@use "categoria3";
-@use "contacto";
-@use "cuenta";
+@use 'home';
+@use 'cuenta';
+@use 'contacto';
+@use 'allprod';
+@use 'product';
+@use 'categoria1';
+@use 'categoria2';
+@use 'categoria3';

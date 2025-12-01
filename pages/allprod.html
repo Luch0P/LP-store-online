@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Accesorios | Store LP</title>
-    <meta name="description" content="Accesorios para tu setup: mousepads y más en Store LP.">
-    <meta name="keywords" content="accesorios, mousepad, setup, store lp">
+    <title>Todos los productos | Store LP</title>
+    <meta name="description" content="Todos los productos de Store LP: periféricos, audio y accesorios.">
+    <meta name="keywords" content="todos los productos, store lp, periféricos, audio, accesorios">
     <meta name="author" content="Lucho LP">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,10 +50,10 @@
                                 Categorías
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                                <li><a class="dropdown-item" href="allprod.html">Todos los productos</a></li>
+                                <li><a class="dropdown-item active" href="allprod.html">Todos los productos</a></li>
                                 <li><a class="dropdown-item" href="categoria1.html">Periféricos</a></li>
                                 <li><a class="dropdown-item" href="categoria2.html">Audio</a></li>
-                                <li><a class="dropdown-item active" href="categoria3.html">Accesorios</a></li>
+                                <li><a class="dropdown-item" href="categoria3.html">Accesorios</a></li>
                             </ul>
                         </li>
 
@@ -62,9 +62,9 @@
                         </li>
                     </ul>
 
-                    <!-- Buscador -->
+                    <!-- Buscador desktop -->
                     <form class="nav-search d-none d-md-flex" role="search">
-                        <input class="nav-search-input" type="search" placeholder="Buscar accesorios..."
+                        <input class="nav-search-input" type="search" placeholder="Buscar productos..."
                             aria-label="Buscar">
                         <button class="nav-search-btn" type="submit">
                             <i class="bi bi-search"></i>
@@ -81,6 +81,7 @@
                             <i class="bi bi-person"></i>
                         </a>
 
+                        <!-- CARRITO DROPDOWN -->
                         <div class="nav-item dropdown cart-dropdown">
                             <a class="icon-link dropdown-toggle position-relative" href="#" id="cartDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -120,140 +121,197 @@
     <!-- ================= MAIN ================= -->
     <main>
 
-        <!-- HERO CON BANNER -->
+        <!-- SOLO TÍTULO -->
         <section class="hero">
-            <div class="container">
-                <div class="row align-items-center g-4">
-
-                    <!-- Texto -->
-                    <div class="col-lg-5 col-md-6">
-                        <div class="hero-text">
-                            <h1>Accesorios</h1>
-                            <p>Mousepads y accesorios que completan tu setup.</p>
-                        </div>
-                    </div>
-
-                    <!-- Banner -->
-                    <div class="col-lg-7 col-md-6">
-                        <div class="hero-banner-box">
-                            <img src="../img/logos/bannerhome.jpg" alt="Accesorios Store LP" class="hero-banner-img">
-                        </div>
-                    </div>
-
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Todos los productos</h1>
                 </div>
             </div>
         </section>
 
-        <!-- GRID ACCESORIOS -->
-        <section id="accesorios" class="destacados">
+        <!-- CARRUSEL DE MARCAS -->
+        <section class="brands-strip">
+            <div class="container">
+                <div class="brands-carousel">
+                    <div class="brands-track">
+                        <img src="../img/logos/redragon.png" alt="Redragon">
+                        <img src="../img/logos/hyperx.png" alt="HyperX">
+                        <img src="../img/logos/logitech.png" alt="Logitech">
+                        <img src="../img/logos/razer.png" alt="Razer">
+                        <img src="../img/logos/corsair.png" alt="Corsair">
+
+                        <img src="../img/logos/redragon.png" alt="Redragon">
+                        <img src="../img/logos/hyperx.png" alt="HyperX">
+                        <img src="../img/logos/logitech.png" alt="Logitech">
+                        <img src="../img/logos/razer.png" alt="Razer">
+                        <img src="../img/logos/corsair.png" alt="Corsair">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============== PERIFÉRICOS =============== -->
+        <section class="destacados">
             <div class="container">
 
                 <div class="titulo-destacados">
-                    <h2>Todos los accesorios</h2>
-                    <a href="allprod.html" class="ver-todos">Volver a todos los productos</a>
+                    <h2>Periféricos</h2>
+                    <a href="categoria1.html" class="ver-todos">Ver todos los periféricos</a>
                 </div>
 
                 <div class="productos-grid">
-
-                    <!-- 1. Mousepad ejemplo -->
+                    <!-- Mouse (clickeable) -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad extendido">
+                            <a href="productos/mouse.html" class="product-link">
+                                <img src="../img/productos/mouseblanco.jpeg" alt="Mouse inalámbrico blanco">
+                            </a>
+                        </div>
+                        <h3>
+                            <a href="productos/mouse.html" class="product-link">
+                                Mouse inalámbrico
+                            </a>
+                        </h3>
+                        <p class="descripcion">Diseño limpio y silencioso.</p>
+                        <p class="precio">$50.000</p>
+                        <button class="btn btn-dark btn-add-cart" data-id="mouse1" data-name="Mouse inalámbrico"
+                            data-price="50000">Agregar</button>
+                    </article>
+
+                    <!-- Teclado (clickeable) -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <a href="productos/teclado.html" class="product-link">
+                                <img src="../img/productos/teclado.jpeg" alt="Teclado mecánico">
+                            </a>
+                        </div>
+                        <h3>
+                            <a href="productos/teclado.html" class="product-link">
+                                Teclado mecánico
+                            </a>
+                        </h3>
+                        <p class="descripcion">Compacto y minimalista.</p>
+                        <p class="precio">$70.000</p>
+                        <button class="btn btn-dark btn-add-cart" data-id="teclado1" data-name="Teclado mecánico"
+                            data-price="70000">Agregar</button>
+                    </article>
+
+                    <!-- Periférico de ejemplo (no clickeable) -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/mouseblanco.jpeg" alt="Periférico ejemplo">
+                        </div>
+                        <h3>Periférico ejemplo</h3>
+                        <p class="descripcion">Solo demostrativo.</p>
+                        <p class="precio">$60.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="my-4">
+
+        <!-- =============== AUDIO =============== -->
+        <section class="destacados">
+            <div class="container">
+
+                <div class="titulo-destacados">
+                    <h2>Audio</h2>
+                    <a href="categoria2.html" class="ver-todos">Ver todo audio</a>
+                </div>
+
+                <div class="productos-grid">
+                    <!-- Auriculares (clickeable) -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <a href="productos/auriculares.html" class="product-link">
+                                <img src="../img/productos/aricularblanco.jpg" alt="Auriculares inalámbricos">
+                            </a>
+                        </div>
+                        <h3>
+                            <a href="productos/auriculares.html" class="product-link">
+                                Auriculares inalámbricos
+                            </a>
+                        </h3>
+                        <p class="descripcion">Sonido claro y simple.</p>
+                        <p class="precio">$100.000</p>
+                        <button class="btn btn-dark btn-add-cart" data-id="auris1" data-name="Auriculares inalámbricos"
+                            data-price="100000">Agregar</button>
+                    </article>
+
+                    <!-- Audio ejemplo 1 -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Audio ejemplo">
+                        </div>
+                        <h3>Auriculares de estudio</h3>
+                        <p class="descripcion">Solo de muestra para la grilla.</p>
+                        <p class="precio">$120.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                    <!-- Audio ejemplo 2 -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Audio ejemplo">
+                        </div>
+                        <h3>Auriculares gaming</h3>
+                        <p class="descripcion">Ejemplo de producto de audio.</p>
+                        <p class="precio">$110.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="my-4">
+
+        <!-- =============== MOUSEPADS =============== -->
+        <section class="destacados">
+            <div class="container">
+
+                <div class="titulo-destacados">
+                    <h2>MousePads</h2>
+                    <a href="categoria3.html" class="ver-todos">Ver todos los Mousepads</a>
+                </div>
+
+                <div class="productos-grid">
+                    <!-- Mousepad ejemplo 1 -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad ejemplo">
                         </div>
                         <h3>Mousepad extendido</h3>
-                        <p class="descripcion">Cubre teclado y mouse, ideal para setups amplios.</p>
+                        <p class="descripcion">Ejemplo de accesorio para el setup.</p>
                         <p class="precio">$35.000</p>
                         <button class="btn btn-dark disabled">Agregar</button>
                     </article>
 
-                    <!-- 2. Mousepad ejemplo -->
+                    <!-- Mousepad ejemplo 2 -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad minimalista">
+                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad ejemplo">
                         </div>
-                        <h3>Mousepad minimalista</h3>
-                        <p class="descripcion">Diseño limpio pensado para escritorios claros.</p>
+                        <h3>Mousepad minimal</h3>
+                        <p class="descripcion">Solo demostrativo.</p>
                         <p class="precio">$28.000</p>
                         <button class="btn btn-dark disabled">Agregar</button>
                     </article>
 
-                    <!-- 3. Mousepad ejemplo -->
+                    <!-- Mousepad ejemplo 3 -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad liso">
+                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad ejemplo">
                         </div>
                         <h3>Mousepad liso</h3>
-                        <p class="descripcion">Textura suave y controlada.</p>
+                        <p class="descripcion">Otro ejemplo para completar la sección.</p>
                         <p class="precio">$30.000</p>
                         <button class="btn btn-dark disabled">Agregar</button>
                     </article>
-
-                    <!-- 4. Soporte ejemplo -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Soporte para auriculares">
-                        </div>
-                        <h3>Soporte para auriculares</h3>
-                        <p class="descripcion">Mantiene tu escritorio ordenado.</p>
-                        <p class="precio">$20.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
-                    </article>
-
-                    <!-- 5. Accesorio ejemplo -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Hub USB minimalista">
-                        </div>
-                        <h3>Hub USB minimalista</h3>
-                        <p class="descripcion">Conectá tus dispositivos sin romper la estética.</p>
-                        <p class="precio">$40.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
-                    </article>
-
-                    <!-- 6. Accesorio ejemplo -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Soporte para monitor">
-                        </div>
-                        <h3>Soporte para monitor</h3>
-                        <p class="descripcion">Levanta la pantalla a la altura ideal.</p>
-                        <p class="precio">$60.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
-                    </article>
-
-                    <!-- 7. Accesorio ejemplo -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Organizador de cables">
-                        </div>
-                        <h3>Organizador de cables</h3>
-                        <p class="descripcion">Ocultá cables y mantené todo prolijo.</p>
-                        <p class="precio">$15.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
-                    </article>
-
-                    <!-- 8. Accesorio ejemplo -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Soporte para laptop">
-                        </div>
-                        <h3>Soporte para laptop</h3>
-                        <p class="descripcion">Mejor postura y ventilación para la notebook.</p>
-                        <p class="precio">$55.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
-                    </article>
-
-                    <!-- 9. Accesorio ejemplo -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Base antideslizante">
-                        </div>
-                        <h3>Base antideslizante</h3>
-                        <p class="descripcion">Ayuda a fijar periféricos sobre el escritorio.</p>
-                        <p class="precio">$18.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
-                    </article>
-
                 </div>
 
             </div>

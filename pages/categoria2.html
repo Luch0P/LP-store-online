@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Audio | Store LP</title>
+    <meta name="description" content="Auriculares y productos de audio de Store LP.">
+    <meta name="keywords" content="audio, auriculares, headset, store lp">
+    <meta name="author" content="Lucho LP">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <nav class="navbar custom-navbar navbar-expand-md">
+            <div class="container">
+
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../img/logostore.png" alt="Logo Store">
+                    <span>Store LP</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="categoriasDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
+                                <li><a class="dropdown-item" href="allprod.html">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="categoria1.html">Periféricos</a></li>
+                                <li><a class="dropdown-item active" href="categoria2.html">Audio</a></li>
+                                <li><a class="dropdown-item" href="categoria3.html">Accesorios</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <!-- Buscador -->
+                    <form class="nav-search d-none d-md-flex" role="search">
+                        <input class="nav-search-input" type="search" placeholder="Buscar audio..." aria-label="Buscar">
+                        <button class="nav-search-btn" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+
+                    <!-- Acciones derecha -->
+                    <div class="navbar-actions d-flex align-items-center gap-2">
+                        <button class="icon-btn d-md-none" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <a href="cuenta.html" class="icon-link">
+                            <i class="bi bi-person"></i>
+                        </a>
+
+                        <div class="nav-item dropdown cart-dropdown">
+                            <a class="icon-link dropdown-toggle position-relative" href="#" id="cartDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-cart"></i>
+                                <span id="cart-count" class="cart-count-badge">0</span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end cart-menu p-3" aria-labelledby="cartDropdown">
+                                <div class="cart-menu-header d-flex justify-content-between mb-2">
+                                    <span>Carrito</span>
+                                    <span id="mini-count" class="cart-count">0 items</span>
+                                </div>
+
+                                <p id="cart-empty-text" class="text-muted small">El carrito está vacío.</p>
+
+                                <div id="cart-items"></div>
+
+                                <div class="cart-menu-footer mt-2 pt-2 border-top">
+                                    <span class="cart-total-label">Total:</span>
+                                    <span id="cart-total" class="cart-total-price">$0</span>
+                                </div>
+
+                                <div class="cart-menu-actions mt-3">
+                                    <button id="btn-empty-cart" class="btn btn-outline-dark btn-sm w-50">Vaciar</button>
+                                    <button class="btn btn-dark btn-sm w-50">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main>
+
+        <!-- HERO CON BANNER -->
+        <section class="hero">
+            <div class="container">
+                <div class="row align-items-center g-4">
+
+                    <!-- Texto -->
+                    <div class="col-lg-5 col-md-6">
+                        <div class="hero-text">
+                            <h1>Audio</h1>
+                            <p>Auriculares pensados para juego, música y uso diario.</p>
+                            <a href="#audio" class="btn btn-dark">Ver todo audio</a>
+                        </div>
+                    </div>
+
+                    <!-- Banner -->
+                    <div class="col-lg-7 col-md-6">
+                        <div class="hero-banner-box">
+                            <!-- Podés cambiar esta imagen por un banner de audio más adelante -->
+                            <img src="../img/logos/bannerhome.jpg" alt="Audio Store LP" class="hero-banner-img">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID AUDIO -->
+        <section id="audio" class="destacados">
+            <div class="container">
+
+                <div class="titulo-destacados">
+                    <h2>Todos los productos de audio</h2>
+                    <a href="allprod.html" class="ver-todos">Volver a todos los productos</a>
+                </div>
+
+                <div class="productos-grid">
+
+                    <!-- 1. Auriculares destacados (REAL, clickeable) -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <a href="productos/auriculares.html" class="product-link">
+                                <img src="../img/productos/aricularblanco.jpg" alt="Auriculares inalámbricos blancos">
+                            </a>
+                        </div>
+                        <h3>
+                            <a href="productos/auriculares.html" class="product-link">
+                                Auriculares inalámbricos
+                            </a>
+                        </h3>
+                        <p class="descripcion">Sonido claro y simple, acompañando tu setup minimalista.</p>
+                        <p class="precio">$100.000</p>
+                        <button class="btn btn-dark btn-add-cart" data-id="auris1" data-name="Auriculares inalámbricos"
+                            data-price="100000">Agregar</button>
+                    </article>
+
+                    <!-- 2. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Auriculares de estudio">
+                        </div>
+                        <h3>Auriculares de estudio</h3>
+                        <p class="descripcion">Solo demostrativo para completar la grilla.</p>
+                        <p class="precio">$120.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                    <!-- 3. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Auriculares gaming">
+                        </div>
+                        <h3>Auriculares gaming</h3>
+                        <p class="descripcion">Ejemplo de headset para juegos.</p>
+                        <p class="precio">$110.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                    <!-- 4. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Auriculares livianos">
+                        </div>
+                        <h3>Auriculares livianos</h3>
+                        <p class="descripcion">Pensados para uso diario cómodo.</p>
+                        <p class="precio">$90.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                    <!-- 5. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Headset con micrófono">
+                        </div>
+                        <h3>Headset con micrófono</h3>
+                        <p class="descripcion">Ideal para videollamadas y streaming.</p>
+                        <p class="precio">$95.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                    <!-- 6. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Auriculares cerrados">
+                        </div>
+                        <h3>Auriculares cerrados</h3>
+                        <p class="descripcion">Aíslan mejor el sonido exterior.</p>
+                        <p class="precio">$105.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                    <!-- 7. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Auriculares abiertos">
+                        </div>
+                        <h3>Auriculares abiertos</h3>
+                        <p class="descripcion">Sonido más espacioso, solo de ejemplo.</p>
+                        <p class="precio">$130.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                    <!-- 8. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Auriculares compactos">
+                        </div>
+                        <h3>Auriculares compactos</h3>
+                        <p class="descripcion">Formato reducido para transportar.</p>
+                        <p class="precio">$85.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                    <!-- 9. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Auriculares office">
+                        </div>
+                        <h3>Auriculares office</h3>
+                        <p class="descripcion">Para trabajo y estudio, solo ejemplo.</p>
+                        <p class="precio">$75.000</p>
+                        <button class="btn btn-dark disabled">Agregar</button>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="mb-1">© 2025 Nombre Store. Todos los derechos reservados.</p>
+            <p class="mb-0 text-muted">Sitio creado por LP.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

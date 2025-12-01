@@ -5,52 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nombre Store | Periféricos y accesorios</title>
-    <meta name="description" content="Tienda de periféricos y accesorios para PC. Mouses, teclados, auriculares y más.">
-    <meta name="keywords" content="tienda, periféricos, teclados, mouse, auriculares, accesorios, pc, gaming">
+    <title>Store LP | Periféricos y accesorios</title>
+    <meta name="description" content="Tienda de periféricos, audio y accesorios.">
+    <meta name="keywords" content="tienda, periféricos, teclados, mouse, auriculares, accesorios">
     <meta name="author" content="Lucho LP">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alan+Sans&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-    <!-- CSS compilado desde SASS -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER / NAV ================= -->
+    <!-- ================= HEADER ================= -->
     <header>
         <nav class="navbar custom-navbar navbar-expand-md">
             <div class="container">
 
-                <!-- BRAND: logo + nombre store -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="img/logostore.png" alt="Logo Store">
-                    <span>Store LP</span>
+                    <img src="img/logos/lpstore.png" alt="Logo Store">
                 </a>
 
-                <!-- Botón hamburguesa para mobile -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
                     aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list"></i>
                 </button>
 
-                <!-- Contenido colapsable -->
                 <div class="collapse navbar-collapse" id="mainNav">
 
-                    <!-- LINKS PRINCIPALES -->
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
+                            <a class="nav-link active" href="index.html">Inicio</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -59,9 +49,10 @@
                                 Categorías
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                                <li><a class="dropdown-item" href="pages/categoria1.html">Teclados</a></li>
-                                <li><a class="dropdown-item" href="pages/categoria2.html">Mouses</a></li>
-                                <li><a class="dropdown-item" href="pages/categoria3.html">Auriculares</a></li>
+                                <li><a class="dropdown-item" href="pages/allprod.html">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="pages/categoria1.html">Periféricos</a></li>
+                                <li><a class="dropdown-item" href="pages/categoria2.html">Audio</a></li>
+                                <li><a class="dropdown-item" href="pages/categoria3.html">Accesorios</a></li>
                             </ul>
                         </li>
 
@@ -70,7 +61,7 @@
                         </li>
                     </ul>
 
-                    <!-- BUSCADOR DESKTOP -->
+                    <!-- Buscador desktop -->
                     <form class="nav-search d-none d-md-flex" role="search">
                         <input class="nav-search-input" type="search" placeholder="Buscar productos..."
                             aria-label="Buscar">
@@ -79,224 +70,180 @@
                         </button>
                     </form>
 
-                    <!-- ACCIONES: mobile + desktop -->
+                    <!-- Acciones derecha -->
                     <div class="navbar-actions d-flex align-items-center gap-2">
-
-                        <!-- Solo icono de lupa en mobile -->
                         <button class="icon-btn d-md-none" type="button">
                             <i class="bi bi-search"></i>
                         </button>
 
-                        <!-- Cuenta -->
                         <a href="pages/cuenta.html" class="icon-link">
                             <i class="bi bi-person"></i>
                         </a>
 
-                        <!-- Carrito dropdown -->
+                        <!-- CARRITO DROPDOWN -->
                         <div class="nav-item dropdown cart-dropdown">
-                            <a class="icon-link dropdown-toggle" href="#" id="cartDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="icon-link dropdown-toggle position-relative" href="#" id="cartDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-cart"></i>
+                                <span id="cart-count" class="cart-count-badge">0</span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end cart-menu" aria-labelledby="cartDropdown">
-                                <div class="cart-menu-header">
+                            <div class="dropdown-menu dropdown-menu-end cart-menu p-3" aria-labelledby="cartDropdown">
+
+                                <div class="cart-menu-header d-flex justify-content-between mb-2">
                                     <span>Carrito</span>
-                                    <span class="cart-count">2 items</span>
+                                    <span id="mini-count" class="cart-count">0 items</span>
                                 </div>
 
-                                <div class="cart-item">
-                                    <div class="cart-item-info">
-                                        <p class="cart-item-name">Mouse inalámbrico</p>
-                                        <p class="cart-item-price">$50.000</p>
-                                    </div>
+                                <p id="cart-empty-text" class="text-muted small">El carrito está vacío.</p>
+
+                                <div id="cart-items"></div>
+
+                                <div class="cart-menu-footer mt-2 pt-2 border-top">
+                                    <span class="cart-total-label">Total:</span>
+                                    <span id="cart-total" class="cart-total-price">$0</span>
                                 </div>
 
-                                <div class="cart-item">
-                                    <div class="cart-item-info">
-                                        <p class="cart-item-name">Teclado mecánico</p>
-                                        <p class="cart-item-price">$70.000</p>
-                                    </div>
+                                <div class="cart-menu-actions mt-3">
+                                    <button id="btn-empty-cart" class="btn btn-outline-dark btn-sm w-50">Vaciar</button>
+                                    <button class="btn btn-dark btn-sm w-50">Comprar</button>
                                 </div>
 
-                                <div class="cart-menu-footer">
-                                    <span class="cart-total-label">Total aprox.</span>
-                                    <span class="cart-total-price">$120.000</span>
-                                </div>
-
-                                <div class="cart-menu-actions">
-                                    <a href="#" class="btn btn-outline btn-sm">Ver carrito</a>
-                                    <a href="#" class="btn btn-dark btn-sm">Finalizar compra</a>
-                                </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
+
             </div>
         </nav>
     </header>
 
-
     <!-- ================= MAIN ================= -->
     <main>
 
-        <!-- ========== HERO ============= -->
-        <section class="hero">
-            <div class="container hero-content">
-
-                <!-- Texto del hero -->
-                <div class="hero-text">
-                    <h1>Store LP</h1>
-                    <p>Perifericos, Audio y Accesorios.</p>
-
-                    <div class="hero-buttons">
-                        <a href="#destacados" class="btn btn-dark">Ver destacados</a>
-                    </div>
-                </div>
-
-            </div> <!-- 🔥 este div faltaba -->
-        </section>
-
-        <!-- ========== FRANJA DE MARCAS ============= -->
-        <section class="brands-strip">
+        <!-- HERO + BANNER LATERAL -->
+        <<section class="hero">
             <div class="container">
-                <div class="brands-carousel">
-                    <div class="brands-track">
-                        <!-- SET 1 -->
-                        <img src="img/logos/redragon.png" alt="Redragon">
-                        <img src="img/logos/hyperx.png" alt="HyperX">
-                        <img src="img/logos/logitech.png" alt="Logitech">
-                        <img src="img/logos/razer.png" alt="Razer">
-                        <img src="img/logos/corsair.png" alt="Corsair">
+                <div class="row align-items-center g-4">
 
-                        <!-- SET 2 -->
-                        <img src="img/logos/redragon.png" alt="Redragon">
-                        <img src="img/logos/hyperx.png" alt="HyperX">
-                        <img src="img/logos/logitech.png" alt="Logitech">
-                        <img src="img/logos/razer.png" alt="Razer">
-                        <img src="img/logos/corsair.png" alt="Corsair">
-
-                        <!-- SET 3 -->
-                        <img src="img/logos/redragon.png" alt="Redragon">
-                        <img src="img/logos/hyperx.png" alt="HyperX">
-                        <img src="img/logos/logitech.png" alt="Logitech">
-                        <img src="img/logos/razer.png" alt="Razer">
-                        <img src="img/logos/corsair.png" alt="Corsair">
+                    <!-- IZQUIERDA -->
+                    <div class="col-lg-5 col-md-6">
+                        <div class="hero-text">
+                            <h1>Store LP</h1>
+                            <p>Periféricos, Audio y Accesorios.</p>
+                            <a href="pages/allprod.html" class="btn btn-dark">Ver catálogo completo</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- ========== PRODUCTOS DESTACADOS ============= -->
-        <section id="destacados" class="destacados">
-            <div class="container">
-
-                <div class="titulo-destacados">
-                    <h2>Productos destacados</h2>
-                </div>
-
-                <div class="productos-grid">
-
-                    <!-- Producto 1 -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="img/productos/mouseblanco.jpeg" alt="Mouse inalámbrico">
+                    <!-- DERECHA (BANNER) -->
+                    <div class="col-lg-7 col-md-6">
+                        <div class="hero-banner-box">
+                            <img src="img/logos/bannerhome.jpg" alt="Banner Store LP" class="hero-banner-img">
                         </div>
-                        <h3>Mouse inalámbrico</h3>
-                        <p class="descripcion">Diseño limpio y silencioso.</p>
-                        <p class="precio">$50.000</p>
-                        <button class="btn btn-dark">Agregar al carrito</button>
-                    </article>
-
-                    <!-- Producto 2 -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="img/productos/teclado.jpeg" alt="Teclado mecánico">
-                        </div>
-                        <h3>Teclado mecánico</h3>
-                        <p class="descripcion">Compacto y minimalista.</p>
-                        <p class="precio">$70.000</p>
-                        <button class="btn btn-dark">Agregar al carrito</button>
-                    </article>
-
-                    <!-- Producto 3 -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="img/productos/aricularblanco.jpg" alt="Auriculares blancos">
-                        </div>
-                        <h3>Auriculares inalámbricos</h3>
-                        <p class="descripcion">Sonido claro y diseño simple.</p>
-                        <p class="precio">$100.000</p>
-                        <button class="btn btn-dark">Agregar al carrito</button>
-                    </article>
+                    </div>
 
                 </div>
             </div>
-        </section>
+            </section>
 
-        <!-- ========== FAQ ============= -->
-        <section class="faq py-5 bg-white">
-            <div class="container">
 
-                <h2 class="h4 mb-4">Preguntas frecuentes</h2>
+            <!-- FRANJA DE MARCAS -->
+            <section class="brands-strip">
+                <div class="container">
+                    <div class="brands-carousel">
+                        <div class="brands-track">
+                            <img src="img/logos/redragon.png" alt="Redragon">
+                            <img src="img/logos/hyperx.png" alt="HyperX">
+                            <img src="img/logos/logitech.png" alt="Logitech">
+                            <img src="img/logos/razer.png" alt="Razer">
+                            <img src="img/logos/corsair.png" alt="Corsair">
 
-                <div class="accordion" id="faqAccordion">
-
-                    <!-- FAQ 1 -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="faq1-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
-                                ¿Hacen envíos a todo el país?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-header"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Sí, enviamos a todo el país mediante diferentes correos. Los tiempos se calculan en el
-                                checkout.
-                            </div>
+                            <img src="img/logos/redragon.png" alt="Redragon">
+                            <img src="img/logos/hyperx.png" alt="HyperX">
+                            <img src="img/logos/logitech.png" alt="Logitech">
+                            <img src="img/logos/razer.png" alt="Razer">
+                            <img src="img/logos/corsair.png" alt="Corsair">
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <!-- FAQ 2 -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="faq2-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
-                                ¿Qué medios de pago aceptan?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-header"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Aceptamos tarjetas, transferencias y billeteras virtuales seleccionadas.
-                            </div>
-                        </div>
+            <!-- PRODUCTOS DESTACADOS -->
+            <section id="destacados" class="destacados">
+                <div class="container">
+
+                    <div class="titulo-destacados">
+                        <h2>Productos destacados</h2>
+                        <a href="pages/allprod.html" class="ver-todos">Ver todos</a>
                     </div>
 
-                    <!-- FAQ 3 -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="faq3-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
-                                ¿Los productos tienen garantía?
-                            </button>
-                        </h2>
-                        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-header"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Sí, todos cuentan con garantía oficial según cada fabricante.
+                    <div class="productos-grid">
+
+                        <!-- Mouse destacado -->
+                        <article class="producto-card">
+                            <div class="producto-img">
+                                <a href="pages/productos/mouse.html" class="product-link">
+                                    <img src="img/productos/mouseblanco.jpeg" alt="Mouse inalámbrico">
+                                </a>
                             </div>
-                        </div>
+                            <h3>
+                                <a href="pages/productos/mouse.html" class="product-link">
+                                    Mouse inalámbrico
+                                </a>
+                            </h3>
+                            <p class="descripcion">Diseño limpio y silencioso.</p>
+                            <p class="precio">$50.000</p>
+                            <button class="btn btn-dark btn-add-cart" data-id="mouse1" data-name="Mouse inalámbrico"
+                                data-price="50000">
+                                Agregar
+                            </button>
+                        </article>
+
+                        <!-- Teclado destacado -->
+                        <article class="producto-card">
+                            <div class="producto-img">
+                                <a href="pages/productos/teclado.html" class="product-link">
+                                    <img src="img/productos/teclado.jpeg" alt="Teclado mecánico">
+                                </a>
+                            </div>
+                            <h3>
+                                <a href="pages/productos/teclado.html" class="product-link">
+                                    Teclado mecánico
+                                </a>
+                            </h3>
+                            <p class="descripcion">Compacto y minimalista.</p>
+                            <p class="precio">$70.000</p>
+                            <button class="btn btn-dark btn-add-cart" data-id="teclado1" data-name="Teclado mecánico"
+                                data-price="70000">
+                                Agregar
+                            </button>
+                        </article>
+
+                        <!-- Auriculares destacados -->
+                        <article class="producto-card">
+                            <div class="producto-img">
+                                <a href="pages/productos/auriculares.html" class="product-link">
+                                    <img src="img/productos/aricularblanco.jpg" alt="Auriculares inalámbricos">
+                                </a>
+                            </div>
+                            <h3>
+                                <a href="pages/productos/auriculares.html" class="product-link">
+                                    Auriculares inalámbricos
+                                </a>
+                            </h3>
+                            <p class="descripcion">Sonido claro y simple.</p>
+                            <p class="precio">$100.000</p>
+                            <button class="btn btn-dark btn-add-cart" data-id="auris1"
+                                data-name="Auriculares inalámbricos" data-price="100000">
+                                Agregar
+                            </button>
+                        </article>
+
                     </div>
 
                 </div>
-
-            </div>
-        </section>
+            </section>
 
     </main>
 
@@ -308,9 +255,7 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
