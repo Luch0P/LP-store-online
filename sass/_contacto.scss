@@ -6,16 +6,21 @@
 
 .contact-page {
     padding: 3rem 0 4rem;
-    background-color: vars.$color-bg;
+    background-color: vars.$color-bg; 
 
     h1 {
         color: vars.$color-heading;
         font-weight: 800;
+        margin-bottom: 0.3rem;
     }
 
     small {
         color: vars.$color-text-muted;
     }
+}
+
+.contact-page .row {
+    row-gap: 1.5rem;
 }
 
 /* ===========================
@@ -24,6 +29,7 @@
 
 .contact-email {
     font-size: 0.95rem;
+    margin-bottom: 1.5rem;
 
     a {
         text-decoration: none;
@@ -37,6 +43,7 @@
     i {
         font-size: 1rem;
         color: vars.$color-heading;
+        margin-right: 0.35rem;
     }
 }
 
@@ -45,10 +52,11 @@
    =========================== */
 
 .contact-card {
-    background-color: vars.$color-surface-alt;
+    background-color: vars.$white; 
     border-radius: 24px;
-    padding: 2rem;
+    padding: 2rem 2.5rem;
     box-shadow: vars.$shadow;
+    border: 1px solid rgba(15, 23, 42, 0.04); 
 }
 
 /* ===========================
@@ -60,31 +68,40 @@
     .form-label {
         font-weight: 600;
         color: vars.$color-heading;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
     }
 
     .form-control,
     textarea {
         border-radius: 12px;
-        border: 1px solid #ddd;
+        border: 1px solid #D1D5DB;
         font-size: 0.95rem;
+        padding: 0.55rem 0.9rem;
+        background-color: #F9FAFB;
 
         &:focus {
             box-shadow: none;
-            border-color: #bbb;
+            border-color: vars.$color-primary-strong;
+            background-color: #FFFFFF;
         }
     }
 }
 
-/* BOTÓN */
+/* BOTÓN ENVIAR */
+
 .btn-contact {
     border-radius: 999px;
     padding: 0.7rem 1.5rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    background-color: vars.$color-primary-strong;
+    border-color: vars.$color-primary-strong;
 
     &:hover {
-        opacity: .85;
+        opacity: .9;
     }
 }
 

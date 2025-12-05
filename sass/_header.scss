@@ -14,6 +14,10 @@ header {
     margin: 0 auto;
     padding-inline: 1.2rem;
     box-shadow: vars.$shadow;
+}
+
+/* Layout interno del navbar */
+.custom-navbar .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -87,6 +91,10 @@ header {
     }
 }
 
+.custom-navbar .navbar-toggler:focus {
+    box-shadow: none;
+}
+
 /* Acciones derecha */
 .navbar-actions {
     display: flex;
@@ -94,13 +102,19 @@ header {
     gap: 0.75rem;
 }
 
-/* Iconos genéricos */
+/* Iconos genéricos + carrito*/
 .icon-link,
-.icon-btn {
-    color: vars.$color-heading;
-    font-size: 1.2rem;
-    display: inline-flex;
+.icon-btn,
+.navbar-cart-wrapper {
+    width: 28px;
+    height: 28px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+
+    color: vars.$color-heading;
+    font-size: 1.4rem;
+    /* tamaño base de los íconos */
     cursor: pointer;
     background: transparent;
     border: none;
@@ -112,72 +126,49 @@ header {
     }
 }
 
-/* Número del carrito */
-.cart-icon-count {
-    font-size: 0.75rem;
-    font-weight: 500;
-    margin-left: 0.2rem;
-    margin-right: 0.15rem;
+.navbar-actions i {
+    line-height: 1;
+    display: block;
 }
 
-/* Badge del carrito */
+.navbar-actions .bi-person {
+    font-size: 1.45rem;
+}
+
+/* === CARRITO  === */
+.navbar-cart-wrapper {
+    position: relative;
+}
+
 .cart-count-badge {
     position: absolute;
-    top: -4px;
-    right: -10px;
+    top: -6px;
+    right: -6px;
     font-size: 0.7rem;
     background-color: vars.$color-primary;
     color: #fff;
     border-radius: 999px;
     padding: 0 6px;
+    line-height: 1;
+    pointer-events: none;
 }
 
-/* Mini carrito */
 .cart-dropdown .dropdown-menu {
-    width: 260px;
-    padding: 0.75rem;
+    width: 300px;
+    padding: 1rem;
+    border-radius: 16px;
 }
 
 .cart-menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    margin-bottom: 0.4rem;
-
-    span:first-child {
-        font-weight: 600;
-    }
-
-    .cart-count {
-        color: vars.$color-text-muted;
-    }
+    margin-bottom: 0.8rem;
 }
 
 .cart-menu-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-
-    .cart-total-label {
-        color: vars.$color-text-muted;
-    }
-
-    .cart-total-price {
-        font-weight: 600;
-        color: vars.$color-heading;
-    }
+    margin-top: 0.8rem;
 }
 
 .cart-menu-actions {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-
-    .btn-sm {
-        font-size: 0.8rem;
-    }
+    margin-top: 1rem;
 }
 
 /* Buscador */
@@ -219,40 +210,68 @@ header {
     }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ========= MOBILE ========= */
+@media (max-width: 767.98px) {
     .custom-navbar {
-        flex-direction: column;
-        gap: 1rem;
+        max-width: 100%;
+        margin-inline: 0;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .custom-navbar .navbar-collapse {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .custom-navbar .navbar-nav {
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .navbar-actions {
+        margin-top: 0.75rem;
+        justify-content: center;
     }
 
     .nav-search {
         width: 100%;
-        margin: 0;
-    }
-
-    .navbar-nav {
-        text-align: center;
+        margin: 0.75rem 0 0;
     }
 }
 
-/* Layout general interno */
-.custom-navbar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+/* ========= DESKTOP (md+) ========= */
+@media (min-width: 768px) {
+    .custom-navbar .navbar-collapse {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+
+    .custom-navbar .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .nav-search {
+        flex: 1;
+        margin: 0 1.5rem;
+    }
 }
 
-.custom-navbar .navbar-collapse {
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-}
+/* ========= MOBILE (carrito) ========= */
+@media (max-width: 767.98px) {
+    .cart-dropdown {
+        position: static;
+    }
 
-.custom-navbar .navbar-nav {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    .cart-dropdown .dropdown-menu {
+        width: min(100vw - 2rem, 360px);
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%);
+        margin-top: 0.75rem;
+        border-radius: 18px;
+    }
 }

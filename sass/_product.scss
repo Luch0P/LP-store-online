@@ -1,81 +1,456 @@
 @use "variables" as v;
 
+/* ==============================
+   PÁGINA DE PRODUCTO – LAYOUT
+   ============================== */
+
 .product-page {
-    padding: 4rem 0;
+    padding: 3.5rem 0 4rem;
+    background-color: v.$color-bg;
 }
 
-/* Contenedor principal */
 .product-wrapper {
     max-width: v.$maxw;
     margin: 0 auto;
+    padding: 0 1rem;
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 2.5rem;
     align-items: flex-start;
 }
 
-/* Imagen */
-.product-img img {
-    width: 420px;
-    max-width: 100%;
-    border-radius: v.$radius;
-    box-shadow: v.$shadow;
+/* Columna izquierda: imagen principal */
+.product-media {
+    flex: 1 1 320px;
 }
 
-/* Info */
+.product-media-main {
+    background-color: v.$color-surface;
+    border-radius: 24px;
+    padding: 1.25rem;
+    box-shadow: v.$shadow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-media-main img {
+    width: 100%;
+    max-width: 380px;
+    max-height: 320px;
+    border-radius: 18px;
+    object-fit: contain;
+}
+
+/* Columna derecha: info principal */
+.product-info {
+    flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.product-kicker {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: v.$color-text-muted;
+}
+
 .product-info h1 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: v.$color-heading;
-    margin-bottom: 0.5rem;
+    margin: 0;
 }
 
 .product-price {
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 1.7rem;
+    font-weight: 800;
     color: v.$color-primary;
-    margin-bottom: 1rem;
 }
 
-.product-desc {
-    font-size: 1rem;
-    color: v.$color-text-muted;
-    margin-bottom: 1.5rem;
+/* ===== Base de todas las pills ===== */
+.product-stock-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
 }
 
-/* Especificaciones */
-.product-specs {
-    max-width: v.$maxw;
-    margin: 3rem auto 0;
+/* Punto */
+.product-stock-pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
 }
 
-.product-specs h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: v.$color-heading;
+/* ====== VARIANTES ====== */
+
+/* STOCK */
+.product-stock-pill.in-stock {
+    background-color: rgba(22, 163, 74, 0.12);
+    color: #15803d;
 }
 
-.product-specs ul {
-    list-style: none;
+.product-stock-pill.in-stock .product-stock-pill-dot {
+    background-color: #22c55e;
+}
+
+/* POCO STOCK */
+.product-stock-pill.low-stock {
+    background-color: rgba(234, 179, 8, 0.15);
+    /* amarillo suave */
+    color: #b45309;
+    /* amarillo oscuro */
+}
+
+.product-stock-pill.low-stock .product-stock-pill-dot {
+    background-color: #facc15;
+    /* amarillo intenso */
+}
+
+/* SIN STOCK */
+.product-stock-pill.no-stock {
+    background-color: rgba(239, 68, 68, 0.15);
+    /* rojo suave */
+    color: #b91c1c;
+    /* rojo oscuro */
+}
+
+.product-stock-pill.no-stock .product-stock-pill-dot {
+    background-color: #ef4444;
+    /* rojo fuerte */
+}
+
+/* Lista de ventajas (envío, devolución, garantía…) */
+.product-meta-list {
+    margin: 0;
     padding: 0;
-}
-
-.product-specs li {
-    padding: 0.4rem 0;
-    border-bottom: 1px solid v.$color-border-subtle;
-    font-size: 0.95rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.9rem;
     color: v.$color-text;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .product-wrapper {
-        flex-direction: column;
-        text-align: center;
+.product-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.product-meta-item i {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Botón principal */
+.product-actions {
+    margin-top: 0.25rem;
+}
+
+.product-actions .btn {
+    width: 100%;
+    border-radius: 999px;
+    padding-block: 0.85rem;
+    font-weight: 600;
+}
+
+/* Nota aclaratoria de texto simulado */
+.product-note {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: v.$color-text-muted;
+}
+
+/* ==============================
+   DETALLES / ESPECIFICACIONES
+   ============================== */
+
+.product-details-header {
+    max-width: v.$maxw;
+    margin: 3rem auto 1rem;
+    padding: 0 1rem;
+    text-align: center;
+
+    h2 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: v.$color-heading;
+        margin-bottom: 0.35rem;
     }
 
-    .product-img img {
-        width: 100%;
-        max-width: 340px;
-        margin: 0 auto;
+    p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: v.$color-text-muted;
+    }
+}
+
+/* grid de 2 columnas: descripción + tabla */
+.product-detail-grid {
+    max-width: v.$maxw;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+    gap: 2rem;
+}
+
+.product-detail-card {
+    background-color: v.$color-surface;
+    border-radius: 24px;
+    padding: 1.75rem 2rem;
+    box-shadow: v.$shadow;
+}
+
+.product-detail-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: v.$color-heading;
+}
+
+.product-detail-text {
+    font-size: 0.93rem;
+    line-height: 1.5;
+    color: v.$color-text;
+}
+
+/* Tabla de especificaciones */
+.product-spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.product-spec-row+.product-spec-row {
+    border-top: 1px solid v.$color-border-subtle;
+}
+
+.product-spec-label,
+.product-spec-value {
+    padding: 0.55rem 0;
+}
+
+.product-spec-label {
+    width: 36%;
+    font-weight: 600;
+    color: v.$color-text-muted;
+}
+
+.product-spec-value {
+    color: v.$color-text;
+}
+
+/* ==============================
+   ENVÍO Y GARANTÍA
+   ============================== */
+
+.product-benefits {
+    max-width: v.$maxw;
+    margin: 3rem auto 0;
+    padding: 0 1rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-benefit-card {
+    background-color: v.$color-surface;
+    border-radius: 24px;
+    padding: 1.5rem 1.6rem;
+    box-shadow: v.$shadow;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.product-benefit-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    color: v.$color-heading;
+}
+
+.product-benefit-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: v.$color-surface-alt;
+}
+
+.product-benefit-text {
+    color: v.$color-text-muted;
+    margin: 0;
+}
+
+/* ==============================
+   GRID DE PRODUCTOS (cards)
+   ============================== */
+
+.productos-grid {
+    max-width: v.$maxw;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.producto-card {
+    position: relative;
+    background-color: v.$color-surface;
+    border-radius: 24px;
+    box-shadow: v.$shadow;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* badge opcional tipo “AGOTADO” */
+.producto-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #e53935;
+    color: #fff;
+}
+
+/* parte de la imagen */
+.producto-img {
+    width: 100%;
+    padding: 1.5rem;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: v.$white;
+    border-bottom: 1px solid v.$color-border-subtle;
+}
+
+.producto-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* cuerpo inferior */
+.producto-body {
+    padding: 1.3rem 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+/* marca */
+.producto-marca {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: v.$color-text-muted;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* nombre */
+.producto-nombre {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: v.$color-heading;
+}
+
+.producto-body .product-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* fila precio + estado */
+.producto-row {
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.producto-row .precio {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: v.$color-heading;
+    margin: 0;
+}
+
+/* estado opcional tipo “● Agotado” */
+.producto-estado {
+    font-size: 0.85rem;
+    color: #e53935;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.producto-estado-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #e53935;
+}
+
+.producto-body .btn-add-cart {
+    width: 100%;
+    border-radius: 999px;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 992px) {
+    .product-wrapper {
+        flex-direction: column;
+    }
+
+    /* en pantallas chicas, pone primero la info y luego la imagen */
+    .product-info {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-page {
+        padding-top: 2.5rem;
+    }
+
+    .product-details-header {
+        text-align: left;
+    }
+
+    .product-detail-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .product-detail-card {
+        padding-inline: 1.5rem;
+    }
+
+    .product-benefits {
+        grid-template-columns: minmax(0, 1fr);
     }
 }

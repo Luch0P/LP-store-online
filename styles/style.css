@@ -11,7 +11,6 @@
 /* Alias */
 /* Componentes base */
 /* Componentes base */
-
 /* BASE / RESET GLOBAL */
 /* Reset básico */
 *,
@@ -107,6 +106,7 @@ section {
   width: 100%;
 }
 
+/* Componentes base */
 /* Header */
 header {
   width: 100%;
@@ -121,6 +121,10 @@ header {
   margin: 0 auto;
   padding-inline: 1.2rem;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Layout interno del navbar */
+.custom-navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -153,8 +157,7 @@ header {
   font-weight: 500;
   transition: color 0.15s;
 }
-.custom-navbar .navbar-nav .nav-link:hover,
-.custom-navbar .navbar-nav .nav-link.active {
+.custom-navbar .navbar-nav .nav-link:hover, .custom-navbar .navbar-nav .nav-link.active {
   color: #3A4F63;
 }
 
@@ -189,6 +192,10 @@ header {
   color: #3A4F63;
 }
 
+.custom-navbar .navbar-toggler:focus {
+  box-shadow: none;
+}
+
 /* Acciones derecha */
 .navbar-actions {
   display: flex;
@@ -196,13 +203,18 @@ header {
   gap: 0.75rem;
 }
 
-/* Iconos genéricos */
+/* Iconos genéricos + carrito*/
 .icon-link,
-.icon-btn {
-  color: #3A4F63;
-  font-size: 1.2rem;
-  display: inline-flex;
+.icon-btn,
+.navbar-cart-wrapper {
+  width: 28px;
+  height: 28px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  color: #3A4F63;
+  font-size: 1.4rem;
+  /* tamaño base de los íconos */
   cursor: pointer;
   background: transparent;
   border: none;
@@ -210,71 +222,54 @@ header {
   margin: 0;
 }
 .icon-link:hover,
-.icon-btn:hover {
+.icon-btn:hover,
+.navbar-cart-wrapper:hover {
   color: #3A4F63;
 }
 
-/* Número del carrito */
-.cart-icon-count {
-  font-size: 0.75rem;
-  font-weight: 500;
-  margin-left: 0.2rem;
-  margin-right: 0.15rem;
+.navbar-actions i {
+  line-height: 1;
+  display: block;
 }
 
-/* Badge del carrito */
+.navbar-actions .bi-person {
+  font-size: 1.45rem;
+}
+
+/* === CARRITO  === */
+.navbar-cart-wrapper {
+  position: relative;
+}
+
 .cart-count-badge {
   position: absolute;
-  top: -4px;
-  right: -10px;
+  top: -6px;
+  right: -6px;
   font-size: 0.7rem;
   background-color: #6F8FAF;
   color: #fff;
   border-radius: 999px;
   padding: 0 6px;
+  line-height: 1;
+  pointer-events: none;
 }
 
-/* Mini carrito */
 .cart-dropdown .dropdown-menu {
-  width: 260px;
-  padding: 0.75rem;
+  width: 300px;
+  padding: 1rem;
+  border-radius: 16px;
 }
 
 .cart-menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  margin-bottom: 0.4rem;
-}
-.cart-menu-header span:first-child {
-  font-weight: 600;
-}
-.cart-menu-header .cart-count {
-  color: #6B7280;
+  margin-bottom: 0.8rem;
 }
 
 .cart-menu-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-}
-.cart-menu-footer .cart-total-label {
-  color: #6B7280;
-}
-.cart-menu-footer .cart-total-price {
-  font-weight: 600;
-  color: #3A4F63;
+  margin-top: 0.8rem;
 }
 
 .cart-menu-actions {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-.cart-menu-actions .btn-sm {
-  font-size: 0.8rem;
+  margin-top: 1rem;
 }
 
 /* Buscador */
@@ -314,42 +309,63 @@ header {
   background-color: #3A4F63;
 }
 
-/* Responsive navbar */
-@media (max-width: 768px) {
+/* ========= MOBILE ========= */
+@media (max-width: 767.98px) {
   .custom-navbar {
-    flex-direction: column;
-    gap: 1rem;
+    max-width: 100%;
+    margin-inline: 0;
+    border-radius: 0 0 20px 20px;
+  }
+  .custom-navbar .navbar-collapse {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .custom-navbar .navbar-nav {
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .navbar-actions {
+    margin-top: 0.75rem;
+    justify-content: center;
   }
   .nav-search {
     width: 100%;
-    margin: 0;
-  }
-  .navbar-nav {
-    text-align: center;
+    margin: 0.75rem 0 0;
   }
 }
-
-/* Layout general interno */
-.custom-navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+/* ========= DESKTOP (md+) ========= */
+@media (min-width: 768px) {
+  .custom-navbar .navbar-collapse {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .custom-navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .nav-search {
+    flex: 1;
+    margin: 0 1.5rem;
+  }
 }
-
-.custom-navbar .navbar-collapse {
-  display: flex !important;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+/* ========= MOBILE (carrito) ========= */
+@media (max-width: 767.98px) {
+  .cart-dropdown {
+    position: static;
+  }
+  .cart-dropdown .dropdown-menu {
+    width: min(100vw - 2rem, 360px);
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+    margin-top: 0.75rem;
+    border-radius: 18px;
+  }
 }
-
-.custom-navbar .navbar-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
+/* Componentes base */
 /* FOOTER */
 .footer {
   background-color: #E9DCC9;
@@ -405,17 +421,44 @@ header {
   color: #6F8FAF;
 }
 
-/* Responsive footer */
+.footer {
+  padding: 1rem 0;
+  background-color: #E9DCC9;
+  border-top: 1px solid #D1D5DB;
+}
+.footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: #6B7280;
+}
+
+.footer-social-label {
+  font-size: 0.85rem;
+  color: #6B7280;
+}
+
+.footer-social-link {
+  font-size: 1.1rem;
+  color: #6B7280;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.footer-social-link:hover {
+  color: #3A4F63;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     text-align: center;
   }
   .footer-links {
-    justify-content:中心;
+    justify-content: center;
   }
 }
-
+/* Componentes base */
 /* Botones globales */
 .btn {
   display: inline-flex;
@@ -499,6 +542,7 @@ header {
   color: #ffffff;
 }
 
+/* Componentes base */
 /* PRODUCT CARDS – UNIVERSAL */
 /* Grid general */
 .productos-grid {
@@ -578,7 +622,7 @@ header {
   margin-top: auto;
 }
 
-/* Responsive product grid */
+/* Responsive */
 @media (max-width: 992px) {
   .productos-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -589,7 +633,8 @@ header {
     grid-template-columns: 1fr;
   }
 }
-
+/* Páginas */
+/* Componentes base */
 /* HOME / INICIO */
 /* Hero */
 .hero {
@@ -600,6 +645,25 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1rem;
+}
+
+/* Columna derecha: banner */
+.hero-banner-box {
+  width: 100%;
+  border-radius: 14px;
+  padding: 0.55rem 0.55rem;
+  background: #ffffff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-banner-img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 /* Columna izquierda: texto */
@@ -622,25 +686,6 @@ header {
 .hero-text .btn {
   padding-inline: 1.6rem;
   border-radius: 999px;
-}
-
-/* Columna derecha: banner */
-.hero-banner-box {
-  width: 100%;
-  border-radius: 24px;
-  padding: 2.4rem 2.2rem;
-  background: linear-gradient(135deg, hsl(0, 0%, 104%), hsl(0, 0%, 112%));
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-banner-img {
-  width: 100%;
-  max-height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
 }
 
 /* Franja de marcas */
@@ -688,7 +733,6 @@ header {
     transform: translateX(-33.333%);
   }
 }
-
 /* Productos destacados */
 .destacados {
   padding: 3.5rem 0;
@@ -717,7 +761,7 @@ header {
   color: #3A4F63;
 }
 
-/* Responsive Home */
+/* Responsive */
 @media (max-width: 992px) {
   .hero .container {
     padding-top: 2.5rem;
@@ -735,12 +779,13 @@ header {
     height: 35px;
   }
   .hero-banner-box {
-    padding: 1.8rem 1.4rem;
-    border-radius: 20px;
+    padding: 1rem 0.9rem;
+    border-radius: 16px;
     margin-top: 1.5rem;
   }
   .hero-banner-img {
     max-height: 220px;
+    border-radius: 12px;
   }
 }
 @media (max-width: 576px) {
@@ -753,15 +798,309 @@ header {
     gap: 0.6rem;
   }
   .hero-banner-box {
-    padding: 1.6rem 1.1rem;
-    border-radius: 18px;
+    padding: 0.9rem 0.8rem;
+    border-radius: 14px;
   }
   .hero-banner-img {
     max-height: 200px;
+    border-radius: 10px;
+  }
+}
+/* Componentes base */
+/* ============================================
+   PÁGINA MI CUENTA – LP Store
+   ============================================ */
+/* Fondo general */
+.account-page {
+  padding: 3rem 0 4rem;
+  background-color: #F3F6F9;
+}
+
+/* Título y descripción */
+.account-header {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+.account-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #3A4F63;
+  margin-bottom: 0.4rem;
+}
+.account-header p {
+  max-width: 520px;
+  color: #6B7280;
+}
+
+/* ============================================
+   CONTENEDOR GENERAL CON BORDE
+   ============================================ */
+.account-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.8rem 1.8rem 2rem;
+  border-radius: 28px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
+}
+@media (max-width: 576px) {
+  .account-container {
+    padding: 1.2rem 1rem 1.5rem;
+    border-radius: 22px;
   }
 }
 
-/* CONTACTO – SECCIÓN GENERAL */
+/* ============================================
+   FILA SUPERIOR (2 columnas)
+   ============================================ */
+.account-top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.8fr);
+  /* Resumen chico / Datos grandes */
+  gap: 1.5rem;
+}
+@media (max-width: 992px) {
+  .account-top-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tarjeta inferior: Compras recientes */
+.account-card-full {
+  margin-top: 1.6rem;
+}
+
+/* ============================================
+   TARJETAS INTERNAS
+   ============================================ */
+.account-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 1.6rem 1.7rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+.account-card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3A4F63;
+  margin-bottom: 1.1rem;
+}
+
+.account-card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+/* Nota aclaratoria */
+.account-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #6B7280;
+}
+
+/* Subtítulo interno */
+.account-subtitle {
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6B7280;
+}
+
+/* ============================================
+   BOTONES: EDITAR / GUARDAR
+   ============================================ */
+.account-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.account-edit-btn,
+.account-save-btn {
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.78rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background-color: #f8fafc;
+  color: #3A4F63;
+  font-weight: 600;
+}
+
+.account-save-btn {
+  background-color: #3A4F63;
+  border-color: #3A4F63;
+  color: #ffffff;
+}
+
+/* ============================================
+   BOTÓN: RESTABLECER CONTRASEÑA
+   ============================================ */
+.account-password-btn {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  padding: 0.45rem 1.3rem;
+  border: 1px solid #3A4F63;
+  background-color: #3A4F63;
+  color: #ffffff;
+  font-weight: 600;
+}
+.account-password-btn:hover {
+  background-color: #6F8FAF;
+  border-color: #6F8FAF;
+}
+
+/* ============================================
+   CAMPOS DE FORMULARIO
+   ============================================ */
+.account-card label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #6B7280;
+  margin-bottom: 0.2rem;
+}
+
+.account-input {
+  width: 100%;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 10px;
+  background-color: #f8fafc;
+  color: #3A4F63;
+  resize: vertical;
+}
+.account-input:focus {
+  outline: none;
+  border-color: #6F8FAF;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+/* ============================================
+   TABLA – COMPRAS RECIENTES
+   ============================================ */
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.account-table thead {
+  background-color: #f1f5f9;
+}
+.account-table thead th {
+  padding: 0.8rem 0.4rem;
+  font-weight: 700;
+  color: #3A4F63;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+}
+.account-table tbody tr {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+.account-table tbody td {
+  padding: 0.75rem 0.4rem;
+  vertical-align: middle;
+  color: #0F172A;
+}
+
+/* ============================================
+   LINKS (Ver detalle / Ver factura)
+   ============================================ */
+.account-link {
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: #3A4F63;
+  font-weight: 600;
+}
+.account-link:hover {
+  text-decoration: underline;
+  color: #6F8FAF;
+}
+
+/* ============================================
+   BADGES DE ESTADO
+   ============================================ */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.status-badge--success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge--warning {
+  background-color: #fef9c3;
+  color: #92400e;
+}
+
+.status-badge--info {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+/* Tablets */
+@media (max-width: 768px) {
+  .account-card {
+    padding: 1.3rem 1.3rem;
+  }
+  .account-header h1 {
+    font-size: 1.9rem;
+  }
+}
+/* Mobile */
+@media (max-width: 576px) {
+  .account-header h1 {
+    font-size: 1.7rem;
+  }
+  .account-card-full {
+    margin-top: 1.3rem;
+  }
+  /* Tabla tipo tarjetas */
+  .account-table thead {
+    display: none;
+  }
+  .account-table tr {
+    display: block;
+    margin-bottom: 0.9rem;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    padding: 0.7rem 0.8rem;
+    background-color: #ffffff;
+  }
+  .account-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+  }
+  .account-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #3A4F63;
+    margin-right: 0.6rem;
+  }
+}
+/* Componentes base */
+/* ===========================
+   CONTACTO – SECCIÓN GENERAL
+   =========================== */
 .contact-page {
   padding: 3rem 0 4rem;
   background-color: #F3F6F9;
@@ -769,14 +1108,22 @@ header {
 .contact-page h1 {
   color: #3A4F63;
   font-weight: 800;
+  margin-bottom: 0.3rem;
 }
 .contact-page small {
   color: #6B7280;
 }
 
-/* EMAIL DE CONTACTO */
+.contact-page .row {
+  row-gap: 1.5rem;
+}
+
+/* ===========================
+   EMAIL DE CONTACTO
+   =========================== */
 .contact-email {
   font-size: 0.95rem;
+  margin-bottom: 1.5rem;
 }
 .contact-email a {
   text-decoration: none;
@@ -788,198 +1135,900 @@ header {
 .contact-email i {
   font-size: 1rem;
   color: #3A4F63;
+  margin-right: 0.35rem;
 }
 
-/* TARJETAS (FORM + MAPA) */
+/* ===========================
+   TARJETAS (FORM + MAPA)
+   =========================== */
 .contact-card {
-  background-color: #E9DCC9;
+  background-color: #ffffff;
   border-radius: 24px;
-  padding: 2rem;
+  padding: 2rem 2.5rem;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.04);
 }
 
-/* FORMULARIO */
+/* ===========================
+   FORMULARIO
+   =========================== */
 .contact-form .form-label {
   font-weight: 600;
   color: #3A4F63;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 .contact-form .form-control,
 .contact-form textarea {
   border-radius: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #D1D5DB;
   font-size: 0.95rem;
+  padding: 0.55rem 0.9rem;
+  background-color: #F9FAFB;
 }
 .contact-form .form-control:focus,
 .contact-form textarea:focus {
   box-shadow: none;
-  border-color: #bbb;
+  border-color: #3A4F63;
+  background-color: #FFFFFF;
 }
 
-/* BOTÓN CONTACTO */
+/* BOTÓN ENVIAR */
 .btn-contact {
   border-radius: 999px;
   padding: 0.7rem 1.5rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  background-color: #3A4F63;
+  border-color: #3A4F63;
 }
 .btn-contact:hover {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-/* MAPA */
+/* ===========================
+   MAPA
+   =========================== */
 .contact-map iframe {
   border-radius: 20px;
   width: 100%;
   height: 100%;
 }
 
-/* PRODUCT PAGE */
+/* Componentes base */
+/* ==============================
+   PÁGINA DE PRODUCTO – LAYOUT
+   ============================== */
 .product-page {
-  padding: 4rem 0;
+  padding: 3.5rem 0 4rem;
+  background-color: #F3F6F9;
 }
 
-/* Contenedor principal */
 .product-wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 2.5rem;
   align-items: flex-start;
 }
 
-/* Imagen */
-.product-img img {
-  width: 420px;
-  max-width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+/* Columna izquierda: imagen principal */
+.product-media {
+  flex: 1 1 320px;
 }
 
-/* Info */
+.product-media-main {
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-media-main img {
+  width: 100%;
+  max-width: 380px;
+  max-height: 320px;
+  border-radius: 18px;
+  object-fit: contain;
+}
+
+/* Columna derecha: info principal */
+.product-info {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.product-kicker {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6B7280;
+}
+
 .product-info h1 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #3A4F63;
-  margin-bottom: 0.5rem;
+  margin: 0;
 }
 
 .product-price {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.7rem;
+  font-weight: 800;
   color: #6F8FAF;
-  margin-bottom: 1rem;
 }
 
-.product-desc {
-  font-size: 1rem;
-  color: #6B7280;
-  margin-bottom: 1.5rem;
+/* ===== Base de todas las pills ===== */
+.product-stock-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
-/* Especificaciones */
-.product-specs {
-  max-width: 1200px;
-  margin: 3rem auto 0;
+/* Punto */
+.product-stock-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
 }
 
-.product-specs h2 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  color: #3A4F63;
+/* ====== VARIANTES ====== */
+/* STOCK */
+.product-stock-pill.in-stock {
+  background-color: rgba(22, 163, 74, 0.12);
+  color: #15803d;
 }
 
-.product-specs ul {
-  list-style: none;
+.product-stock-pill.in-stock .product-stock-pill-dot {
+  background-color: #22c55e;
+}
+
+/* POCO STOCK */
+.product-stock-pill.low-stock {
+  background-color: rgba(234, 179, 8, 0.15);
+  /* amarillo suave */
+  color: #b45309;
+  /* amarillo oscuro */
+}
+
+.product-stock-pill.low-stock .product-stock-pill-dot {
+  background-color: #facc15;
+  /* amarillo intenso */
+}
+
+/* SIN STOCK */
+.product-stock-pill.no-stock {
+  background-color: rgba(239, 68, 68, 0.15);
+  /* rojo suave */
+  color: #b91c1c;
+  /* rojo oscuro */
+}
+
+.product-stock-pill.no-stock .product-stock-pill-dot {
+  background-color: #ef4444;
+  /* rojo fuerte */
+}
+
+/* Lista de ventajas (envío, devolución, garantía…) */
+.product-meta-list {
+  margin: 0;
   padding: 0;
-}
-
-.product-specs li {
-  padding: 0.4rem 0;
-  border-bottom: 1px solid #D1D5DB;
-  font-size: 0.95rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
   color: #0F172A;
 }
 
-/* Responsive product page */
-@media (max-width: 768px) {
-  .product-wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
-  .product-img img {
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-  }
+.product-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
-/* ===========================
-   EXTRAS DEL STYLE ANTERIOR
-   (para que nada de tu HTML se rompa)
-   =========================== */
+.product-meta-item i {
+  font-size: 1rem;
+  opacity: 0.9;
+}
 
-/* Layout del hero viejo (si usás .hero-content y .hero-buttons) */
-.hero-content {
+/* Botón principal */
+.product-actions {
+  margin-top: 0.25rem;
+}
+
+.product-actions .btn {
+  width: 100%;
+  border-radius: 999px;
+  padding-block: 0.85rem;
+  font-weight: 600;
+}
+
+/* Nota aclaratoria de texto simulado */
+.product-note {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #6B7280;
+}
+
+/* ==============================
+   DETALLES / ESPECIFICACIONES
+   ============================== */
+.product-details-header {
+  max-width: 1200px;
+  margin: 3rem auto 1rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+.product-details-header h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #3A4F63;
+  margin-bottom: 0.35rem;
+}
+.product-details-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6B7280;
+}
+
+/* grid de 2 columnas: descripción + tabla */
+.product-detail-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+  gap: 2rem;
+}
+
+.product-detail-card {
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.product-detail-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #3A4F63;
+}
+
+.product-detail-text {
+  font-size: 0.93rem;
+  line-height: 1.5;
+  color: #0F172A;
+}
+
+/* Tabla de especificaciones */
+.product-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.product-spec-row + .product-spec-row {
+  border-top: 1px solid #D1D5DB;
+}
+
+.product-spec-label,
+.product-spec-value {
+  padding: 0.55rem 0;
+}
+
+.product-spec-label {
+  width: 36%;
+  font-weight: 600;
+  color: #6B7280;
+}
+
+.product-spec-value {
+  color: #0F172A;
+}
+
+/* ==============================
+   ENVÍO Y GARANTÍA
+   ============================== */
+.product-benefits {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding: 0 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.5rem;
 }
 
-.hero-buttons {
+.product-benefit-card {
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  padding: 1.5rem 1.6rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
   display: flex;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
 }
 
-/* Responsive extra para hero-content */
+.product-benefit-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #3A4F63;
+}
+
+.product-benefit-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E9DCC9;
+}
+
+.product-benefit-text {
+  color: #6B7280;
+  margin: 0;
+}
+
+/* ==============================
+   GRID DE PRODUCTOS (cards)
+   ============================== */
+.productos-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.producto-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* badge opcional tipo “AGOTADO” */
+.producto-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #e53935;
+  color: #fff;
+}
+
+/* parte de la imagen */
+.producto-img {
+  width: 100%;
+  padding: 1.5rem;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #D1D5DB;
+}
+
+.producto-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* cuerpo inferior */
+.producto-body {
+  padding: 1.3rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* marca */
+.producto-marca {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* nombre */
+.producto-nombre {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  color: #3A4F63;
+}
+
+.producto-body .product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* fila precio + estado */
+.producto-row {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.producto-row .precio {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #3A4F63;
+  margin: 0;
+}
+
+/* estado opcional tipo “● Agotado” */
+.producto-estado {
+  font-size: 0.85rem;
+  color: #e53935;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.producto-estado-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #e53935;
+}
+
+.producto-body .btn-add-cart {
+  width: 100%;
+  border-radius: 999px;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
 @media (max-width: 992px) {
-  .hero-buttons {
-    justify-content: center;
+  .product-wrapper {
+    flex-direction: column;
+  }
+  /* en pantallas chicas, pone primero la info y luego la imagen */
+  .product-info {
+    order: -1;
   }
 }
 @media (max-width: 768px) {
-  .hero-content {
-    align-items: center;
-    text-align: center;
-    padding: 3rem 1rem;
+  .product-page {
+    padding-top: 2.5rem;
   }
-  .hero-buttons {
-    width: 100%;
-    justify-content: center;
-    gap: 0.75rem;
+  .product-details-header {
+    text-align: left;
+  }
+  .product-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .product-detail-card {
+    padding-inline: 1.5rem;
+  }
+  .product-benefits {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
-
-/* Contenedor para el mini carrito si usás .cart-menu */
-.cart-menu {
-  width: 260px;
-  padding: 0.6rem 0.8rem 0.8rem;
+/* Componentes base */
+/* ===== MODO ===== */
+/* Botón iconito (luna/sol + lupa mobile) */
+.icon-btn {
+  border: none;
+  background: transparent;
+  padding: 0.25rem 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-/* Items del mini carrito */
-.cart-item {
-  padding: 0.3rem 0;
+.icon-btn:hover {
+  opacity: 0.9;
 }
 
-.cart-item-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+/* ===== FONDO GENERAL ===== */
+:root.dark-mode body {
+  background-color: #1E1F22;
+  color: #F2F3F5;
 }
 
-.cart-item-name {
-  font-size: 0.8rem;
-  color: #0F172A;
+/* ===== NAVBAR PILL ===== */
+:root.dark-mode .custom-navbar {
+  background-color: #2B2D31 !important;
 }
 
-.cart-item-price {
-  font-size: 0.8rem;
+/* Marca + links de navbar */
+:root.dark-mode .custom-navbar .navbar-brand,
+:root.dark-mode .custom-navbar .navbar-brand span,
+:root.dark-mode .custom-navbar .nav-link {
+  color: #F2F3F5;
+}
+
+:root.dark-mode .custom-navbar .nav-link.active {
+  color: #ffffff;
+}
+
+/* Iconos derecha (cuenta, carrito, luna) */
+:root.dark-mode .navbar-actions .icon-link,
+:root.dark-mode .navbar-actions .icon-btn i {
+  color: #F2F3F5;
+}
+
+/* ===== BUSCADOR EN NAVBAR ===== */
+:root.dark-mode .nav-search-input {
+  background-color: #F3F4F6 !important;
+  color: #111827 !important;
+  border: 2px solid #D1D5DB;
+}
+
+:root.dark-mode .nav-search-input::placeholder {
+  color: #6B7280 !important;
+}
+
+/* Botón de búsqueda */
+:root.dark-mode .nav-search-btn {
+  background-color: #5865F2;
+  color: #ffffff;
+}
+
+/* ===== HERO Y DESTACADOS ===== */
+:root.dark-mode .hero,
+:root.dark-mode .destacados {
+  background-color: #1E1F22;
+}
+
+:root.dark-mode .hero-text h1,
+:root.dark-mode .hero-text p,
+:root.dark-mode .titulo-destacados h2,
+:root.dark-mode .titulo-destacados a {
+  color: #F2F3F5;
+}
+
+/* =====================================
+   PÁGINA DE PRODUCTO EN MODO OSCURO
+   ===================================== */
+:root.dark-mode .product-page {
+  background-color: #1E1F22;
+}
+
+/* Tarjetas y recuadros principales */
+:root.dark-mode .product-media-main,
+:root.dark-mode .product-detail-card,
+:root.dark-mode .product-benefit-card {
+  background-color: #020617;
+  box-shadow: none;
+}
+
+/* Título y precio del producto */
+:root.dark-mode .product-info h1 {
+  color: #F9FAFB;
+}
+
+:root.dark-mode .product-price {
+  color: #8FB7D9;
+}
+
+/* Kicker / subtítulo superior */
+:root.dark-mode .product-kicker {
+  color: #9CA3AF;
+}
+
+:root.dark-mode .product-page .text-muted {
+  color: #9CA3AF !important;
+}
+
+/* Lista de ventajas (envío, devolución, garantía…) */
+:root.dark-mode .product-meta-list {
+  color: #E5E7EB;
+}
+
+:root.dark-mode .product-meta-item i {
+  color: #8FB7D9;
+}
+
+/* Nota aclaratoria */
+:root.dark-mode .product-note {
+  color: #9CA3AF;
+}
+
+/* Encabezado “Detalles del mouse” */
+:root.dark-mode .product-details-header h2 {
+  color: #F9FAFB;
+}
+
+:root.dark-mode .product-details-header p {
+  color: #9CA3AF;
+}
+
+/* Tarjeta de descripción + texto */
+:root.dark-mode .product-detail-title {
+  color: #F9FAFB;
+}
+
+:root.dark-mode .product-detail-text {
+  color: #E5E7EB;
+}
+
+/* Tabla de especificaciones */
+:root.dark-mode .product-spec-table {
+  color: #E5E7EB;
+}
+
+:root.dark-mode .product-spec-row + .product-spec-row {
+  border-color: #1F2937;
+}
+
+:root.dark-mode .product-spec-label {
+  color: #9CA3AF;
+}
+
+:root.dark-mode .product-spec-value {
+  color: #F9FAFB;
+}
+
+/* Tarjetas de “Envío y garantía” */
+:root.dark-mode .product-benefit-header {
+  color: #F9FAFB;
+}
+
+:root.dark-mode .product-benefit-text {
+  color: #9CA3AF;
+}
+
+/* ===== FOOTER EN MODO OSCURO ===== */
+:root.dark-mode .footer {
+  background-color: #2B2D31 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Textos e iconos del footer */
+:root.dark-mode .footer,
+:root.dark-mode .footer * {
+  color: #8FB7D9 !important;
+}
+
+/* =====================================
+   MODO OSCURO – CONTACTO
+   ===================================== */
+:root.dark-mode .contact-page {
+  background-color: #1E1F22;
+  color: #F2F3F5;
+}
+
+/* Tarjetas (form + mapa) */
+:root.dark-mode .contact-card {
+  background-color: #2B2D31;
+  box-shadow: none;
+}
+
+/* Títulos y textos principales */
+:root.dark-mode .contact-page h1,
+:root.dark-mode .contact-email a,
+:root.dark-mode .contact-email i,
+:root.dark-mode .contact-form .form-label {
+  color: #F2F3F5 !important;
+}
+
+/* Textos secundarios */
+:root.dark-mode .contact-page small {
+  color: #9CA3AF !important;
+}
+
+/* Inputs */
+:root.dark-mode .contact-form .form-control,
+:root.dark-mode .contact-form textarea {
+  background-color: #1A1B1E;
+  border-color: #4B5563;
+  color: #F2F3F5;
+}
+:root.dark-mode .contact-form .form-control::placeholder,
+:root.dark-mode .contact-form textarea::placeholder {
+  color: #9CA3AF;
+}
+:root.dark-mode .contact-form .form-control:focus,
+:root.dark-mode .contact-form textarea:focus {
+  border-color: #8FB7D9;
+  box-shadow: none;
+}
+
+/* Botón ENVIAR */
+:root.dark-mode .btn-contact {
+  background-color: #8FB7D9 !important;
+  border-color: #8FB7D9 !important;
+  color: #111 !important;
+}
+:root.dark-mode .btn-contact:hover {
+  background-color: #74A4CC !important;
+  border-color: #74A4CC !important;
+}
+
+/* =====================================================
+      MODO OSCURO — MI CUENTA 
+   ===================================================== */
+:root.dark-mode .account-page {
+  background-color: #1E1F22;
+  color: #F2F3F5;
+}
+
+/* Contenedor general */
+:root.dark-mode .account-container {
+  border-color: #111827;
+}
+
+/* ====== TARJETAS ====== */
+:root.dark-mode .account-card {
+  background-color: #111827;
+  box-shadow: none;
+  color: #F2F3F5;
+}
+
+/* Títulos */
+:root.dark-mode .account-header h1,
+:root.dark-mode .account-card h2,
+:root.dark-mode .account-subtitle,
+:root.dark-mode .account-card label {
+  color: #F9FAFB;
+}
+
+:root.dark-mode .account-header p,
+:root.dark-mode .account-note {
+  color: #9CA3AF;
+}
+
+/* ====== INPUTS ====== */
+:root.dark-mode .account-input {
+  background-color: #020617;
+  border-color: #374151;
+  color: #E5E7EB;
+}
+:root.dark-mode .account-input::placeholder {
+  color: #9CA3AF;
+}
+:root.dark-mode .account-input:focus {
+  border-color: #8FB7D9;
+  box-shadow: none;
+}
+
+/* ====== BOTONES EDITAR / GUARDAR ====== */
+:root.dark-mode .account-edit-btn {
+  background-color: transparent;
+  border-radius: 999px;
+  border: 1px solid #4B5563;
+  color: #E5E7EB;
+  padding-inline: 1.2rem;
+}
+:root.dark-mode .account-edit-btn:hover {
+  border-color: #8FB7D9;
+  color: #BFDBFE;
+}
+
+:root.dark-mode .account-save-btn {
+  background-color: #8FB7D9;
+  border-radius: 999px;
+  border: 1px solid #8FB7D9;
+  color: #111827;
+  padding-inline: 1.2rem;
+}
+:root.dark-mode .account-save-btn:hover {
+  background-color: #74A4CC;
+  border-color: #74A4CC;
+}
+
+/* Botón Restablecer Contraseña */
+:root.dark-mode .account-password-btn {
+  background-color: #8FB7D9;
+  border-color: #8FB7D9;
+  color: #111827;
+}
+:root.dark-mode .account-password-btn:hover {
+  background-color: #74A4CC;
+  border-color: #74A4CC;
+}
+
+/* =====================================================
+      TABLA — COMPRAS RECIENTES
+   ===================================================== */
+:root.dark-mode .account-card.account-card-full {
+  background-color: #111827;
+}
+
+/* Tabla base */
+:root.dark-mode .account-table {
+  width: 100%;
+  color: #E5E7EB;
+  background-color: transparent;
+}
+
+:root.dark-mode .account-card-full .text-muted,
+:root.dark-mode .account-card-full .account-table + .text-muted {
+  color: #9CA3AF !important;
+  opacity: 1 !important;
+}
+
+/* ENCABEZADO — BLANCO FUERTE */
+:root.dark-mode .account-table thead {
+  background-color: #020617;
+}
+
+:root.dark-mode .account-table thead th {
+  color: #FFFFFF !important;
   font-weight: 600;
-  color: #3A4F63;
+  border-color: #111827;
+}
+
+/* Celdas */
+:root.dark-mode .account-table td {
+  border-color: #111827;
+  color: #E5E7EB;
+}
+
+/* Primera columna clara */
+:root.dark-mode .account-table tbody td:first-child {
+  color: #F3F4F6 !important;
+}
+
+/* Zebra suave */
+:root.dark-mode .account-table tbody tr {
+  background-color: #020617;
+}
+
+:root.dark-mode .account-table tbody tr:nth-child(even) {
+  background-color: #0B1120;
+}
+
+/* Links */
+:root.dark-mode .account-link {
+  color: #8FB7D9;
+}
+:root.dark-mode .account-link:hover {
+  color: #BFDBFE;
+}
+
+/* ===== BADGES ===== */
+:root.dark-mode .status-badge {
+  color: #111827;
+}
+
+:root.dark-mode .status-badge--success {
+  background-color: #6EE7B7;
+}
+
+:root.dark-mode .status-badge--warning {
+  background-color: #FCD34D;
+}
+
+:root.dark-mode .status-badge--info {
+  background-color: #93C5FD;
 }
 
 /*# sourceMappingURL=style.css.map */

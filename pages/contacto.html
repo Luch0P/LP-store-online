@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Store LP | Contacto</title>
-    <meta name="description" content="Contacto de Store LP. Enviá tu consulta sobre periféricos, audio y accesorios.">
-    <meta name="keywords" content="contacto, tienda, periféricos, teclados, mouse, auriculares, accesorios">
+    <meta name="description"
+        content="Contacto de Store LP. Enviá tu consulta sobre periféricos, mouse, teclados, mousepads, audio y accesorios.">
+    <meta name="keywords" content="contacto, tienda, periféricos, teclados, mouse, mousepad, auriculares, accesorios">
     <meta name="author" content="Lucho LP">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,8 +29,7 @@
             <div class="container">
 
                 <a class="navbar-brand" href="../index.html">
-                    <img src="../img/logostore.png" alt="Logo Store">
-                    <span>Store LP</span>
+                    <img src="../img/logos/lpstore.png" alt="Logo Store LP">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -44,6 +44,7 @@
                             <a class="nav-link" href="../index.html">Inicio</a>
                         </li>
 
+                        <!-- CATEGORÍAS actualizadas -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,9 +52,10 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
                                 <li><a class="dropdown-item" href="allprod.html">Todos los productos</a></li>
-                                <li><a class="dropdown-item" href="categoria1.html">Periféricos</a></li>
-                                <li><a class="dropdown-item" href="categoria2.html">Audio</a></li>
-                                <li><a class="dropdown-item" href="categoria3.html">Accesorios</a></li>
+                                <li><a class="dropdown-item" href="categoria-mouse.html">Mouse</a></li>
+                                <li><a class="dropdown-item" href="categoria-mousepad.html">Mousepad</a></li>
+                                <li><a class="dropdown-item" href="categoria-teclados.html">Teclado</a></li>
+                                <li><a class="dropdown-item" href="categoria-audio.html">Audio</a></li>
                             </ul>
                         </li>
 
@@ -73,10 +75,12 @@
 
                     <!-- Acciones derecha -->
                     <div class="navbar-actions d-flex align-items-center gap-2">
+                        <!-- Buscador mobile -->
                         <button class="icon-btn d-md-none" type="button">
                             <i class="bi bi-search"></i>
                         </button>
 
+                        <!-- Cuenta -->
                         <a href="cuenta.html" class="icon-link">
                             <i class="bi bi-person"></i>
                         </a>
@@ -94,18 +98,26 @@
                                     <span>Carrito</span>
                                     <span id="mini-count" class="cart-count">0 items</span>
                                 </div>
+
                                 <p id="cart-empty-text" class="text-muted small">El carrito está vacío.</p>
                                 <div id="cart-items"></div>
-                                <div class="cart-menu-footer mt-2 pt-2 border-top">
+
+                                <div class="cart-menu-footer mt-2 pt-2 border-top d-flex justify-content-between">
                                     <span class="cart-total-label">Total:</span>
                                     <span id="cart-total" class="cart-total-price">$0</span>
                                 </div>
-                                <div class="cart-menu-actions mt-3">
+
+                                <div class="cart-menu-actions mt-3 d-flex gap-2">
                                     <button id="btn-empty-cart" class="btn btn-outline-dark btn-sm w-50">Vaciar</button>
                                     <button class="btn btn-dark btn-sm w-50">Comprar</button>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- MODO OSCURO / CLARO -->
+                        <button id="themeToggle" class="icon-btn" type="button" aria-label="Cambiar tema">
+                            <i class="bi bi-moon"></i>
+                        </button>
                     </div>
 
                 </div>
@@ -125,7 +137,7 @@
 
                     <div class="contact-email d-flex align-items-center">
                         <i class="bi bi-envelope me-2"></i>
-                        <a href="mailto:platinogear@gmail.com">LPstore@gmail.com</a>
+                        <a href="mailto:lpstore@gmail.com">lpstore@gmail.com</a>
                     </div>
                 </div>
 
@@ -167,9 +179,9 @@
                     <!-- MAPA -->
                     <div class="col-lg-5">
                         <div class="contact-card h-100">
-                            <h2 class="h5 mb-3"> Nuestro Local</h2>
+                            <h2 class="h5 mb-3">Nuestro Local</h2>
                             <p class="text-muted small mb-3">
-                                Direcion: ....
+                                Dirección: ...
                             </p>
 
                             <div class="ratio ratio-4x3 contact-map">
@@ -188,13 +200,41 @@
 
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
-        <div class="container footer-content">
-            <p class="mb-1">© 2025 Nombre Store. Todos los derechos reservados.</p>
-            <p class="mb-0 text-muted">Sitio creado por LP.</p>
+        <div
+            class="container footer-content d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <!-- Izquierda -->
+            <div class="footer-left">
+                <p class="mb-1">© 2025 Store LP. Todos los derechos reservados.</p>
+            </div>
+
+            <!-- Derecha -->
+            <div class="footer-right text-md-end text-center">
+                <p class="mb-1 text-muted">Sitio creado por LP.</p>
+
+                <div
+                    class="footer-social d-flex align-items-center justify-content-md-end justify-content-center gap-2">
+                    <span class="footer-social-label">Nuestras redes:</span>
+
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="https://x.com/" target="_blank" aria-label="X (Twitter)">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- JS de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS global del tema (modo oscuro / claro) -->
+    <script src="../scripts/theme.js"></script>
 </body>
 
 </html>

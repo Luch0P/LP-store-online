@@ -1,0 +1,309 @@
+@use "variables" as vars;
+
+/* ============================================
+   PÁGINA MI CUENTA – LP Store
+   ============================================ */
+
+/* Fondo general */
+.account-page {
+    padding: 3rem 0 4rem;
+    background-color: vars.$color-bg;
+}
+
+/* Título y descripción */
+.account-header {
+    max-width: vars.$maxw;
+    margin: 0 auto 2rem;
+
+    h1 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: vars.$color-heading;
+        margin-bottom: 0.4rem;
+    }
+
+    p {
+        max-width: 520px;
+        color: vars.$color-text-muted;
+    }
+}
+
+/* ============================================
+   CONTENEDOR GENERAL CON BORDE
+   ============================================ */
+.account-container {
+    max-width: vars.$maxw;
+    margin: 0 auto;
+    padding: 1.8rem 1.8rem 2rem;
+    border-radius: 28px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(4px);
+
+    @media (max-width: 576px) {
+        padding: 1.2rem 1rem 1.5rem;
+        border-radius: 22px;
+    }
+}
+
+/* ============================================
+   FILA SUPERIOR (2 columnas)
+   ============================================ */
+.account-top-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.8fr);
+    /* Resumen chico / Datos grandes */
+    gap: 1.5rem;
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tarjeta inferior: Compras recientes */
+.account-card-full {
+    margin-top: 1.6rem;
+}
+
+/* ============================================
+   TARJETAS INTERNAS
+   ============================================ */
+.account-card {
+    background-color: vars.$white;
+    border-radius: 20px;
+    padding: 1.6rem 1.7rem;
+    box-shadow: vars.$shadow;
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: vars.$color-heading;
+        margin-bottom: 1.1rem;
+    }
+}
+
+.account-card-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+}
+
+/* Nota aclaratoria */
+.account-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: vars.$color-text-muted;
+}
+
+/* Subtítulo interno */
+.account-subtitle {
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: vars.$color-text-muted;
+}
+
+/* ============================================
+   BOTONES: EDITAR / GUARDAR
+   ============================================ */
+.account-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.account-edit-btn,
+.account-save-btn {
+    border-radius: 999px;
+    padding: 0.25rem 0.9rem;
+    font-size: 0.78rem;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background-color: #f8fafc;
+    color: vars.$color-heading;
+    font-weight: 600;
+}
+
+.account-save-btn {
+    background-color: vars.$color-primary-strong;
+    border-color: vars.$color-primary-strong;
+    color: vars.$white;
+}
+
+/* ============================================
+   BOTÓN: RESTABLECER CONTRASEÑA
+   ============================================ */
+.account-password-btn {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    border-radius: 999px;
+    padding: 0.45rem 1.3rem;
+    border: 1px solid vars.$color-primary-strong;
+    background-color: vars.$color-primary-strong;
+    color: vars.$white;
+    font-weight: 600;
+
+    &:hover {
+        background-color: vars.$color-primary;
+        border-color: vars.$color-primary;
+    }
+}
+
+/* ============================================
+   CAMPOS DE FORMULARIO
+   ============================================ */
+.account-card label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: vars.$color-text-muted;
+    margin-bottom: 0.2rem;
+}
+
+.account-input {
+    width: 100%;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 10px;
+    background-color: #f8fafc;
+    color: vars.$color-heading;
+    resize: vertical;
+
+    &:focus {
+        outline: none;
+        border-color: vars.$color-primary;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+    }
+}
+
+/* ============================================
+   TABLA – COMPRAS RECIENTES
+   ============================================ */
+.account-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+
+    thead {
+        background-color: #f1f5f9;
+
+        th {
+            padding: 0.8rem 0.4rem;
+            font-weight: 700;
+            color: vars.$color-heading;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+        }
+    }
+
+    tbody tr {
+        border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    tbody td {
+        padding: 0.75rem 0.4rem;
+        vertical-align: middle;
+        color: vars.$color-text;
+    }
+}
+
+/* ============================================
+   LINKS (Ver detalle / Ver factura)
+   ============================================ */
+.account-link {
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: vars.$color-primary-strong;
+    font-weight: 600;
+
+    &:hover {
+        text-decoration: underline;
+        color: vars.$color-primary;
+    }
+}
+
+/* ============================================
+   BADGES DE ESTADO
+   ============================================ */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.status-badge--success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-badge--warning {
+    background-color: #fef9c3;
+    color: #92400e;
+}
+
+.status-badge--info {
+    background-color: #dbeafe;
+    color: #1e3a8a;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .account-card {
+        padding: 1.3rem 1.3rem;
+    }
+
+    .account-header h1 {
+        font-size: 1.9rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .account-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .account-card-full {
+        margin-top: 1.3rem;
+    }
+
+    /* Tabla tipo tarjetas */
+    .account-table thead {
+        display: none;
+    }
+
+    .account-table tr {
+        display: block;
+        margin-bottom: 0.9rem;
+        border-radius: 12px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        padding: 0.7rem 0.8rem;
+        background-color: #ffffff;
+    }
+
+    .account-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.4rem 0;
+        font-size: 0.85rem;
+    }
+
+    .account-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: vars.$color-heading;
+        margin-right: 0.6rem;
+    }
+}

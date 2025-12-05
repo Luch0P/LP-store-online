@@ -1,0 +1,405 @@
+@use "variables" as vars;
+
+/* ===== MODO ===== */
+
+/* Botón iconito (luna/sol + lupa mobile) */
+.icon-btn {
+    border: none;
+    background: transparent;
+    padding: 0.25rem 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.icon-btn:hover {
+    opacity: 0.9;
+}
+
+/* ===== FONDO GENERAL ===== */
+:root.dark-mode body {
+    background-color: #1E1F22;
+    color: #F2F3F5;
+}
+
+/* ===== NAVBAR PILL ===== */
+:root.dark-mode .custom-navbar {
+    background-color: #2B2D31 !important;
+}
+
+/* Marca + links de navbar */
+:root.dark-mode .custom-navbar .navbar-brand,
+:root.dark-mode .custom-navbar .navbar-brand span,
+:root.dark-mode .custom-navbar .nav-link {
+    color: #F2F3F5;
+}
+
+:root.dark-mode .custom-navbar .nav-link.active {
+    color: #ffffff;
+}
+
+/* Iconos derecha (cuenta, carrito, luna) */
+:root.dark-mode .navbar-actions .icon-link,
+:root.dark-mode .navbar-actions .icon-btn i {
+    color: #F2F3F5;
+}
+
+/* ===== BUSCADOR EN NAVBAR ===== */
+:root.dark-mode .nav-search-input {
+    background-color: #F3F4F6 !important;
+    color: #111827 !important;
+    border: 2px solid #D1D5DB;
+}
+
+:root.dark-mode .nav-search-input::placeholder {
+    color: #6B7280 !important;
+}
+
+/* Botón de búsqueda */
+:root.dark-mode .nav-search-btn {
+    background-color: #5865F2;
+    color: #ffffff;
+}
+
+/* ===== HERO Y DESTACADOS ===== */
+:root.dark-mode .hero,
+:root.dark-mode .destacados {
+    background-color: #1E1F22;
+}
+
+:root.dark-mode .hero-text h1,
+:root.dark-mode .hero-text p,
+:root.dark-mode .titulo-destacados h2,
+:root.dark-mode .titulo-destacados a {
+    color: #F2F3F5;
+}
+
+/* =====================================
+   PÁGINA DE PRODUCTO EN MODO OSCURO
+   ===================================== */
+
+:root.dark-mode .product-page {
+    background-color: #1E1F22;
+}
+
+/* Tarjetas y recuadros principales */
+:root.dark-mode .product-media-main,
+:root.dark-mode .product-detail-card,
+:root.dark-mode .product-benefit-card {
+    background-color: #020617;
+    box-shadow: none;
+}
+
+/* Título y precio del producto */
+:root.dark-mode .product-info h1 {
+    color: #F9FAFB;
+}
+
+:root.dark-mode .product-price {
+    color: #8FB7D9;
+}
+
+/* Kicker / subtítulo superior */
+:root.dark-mode .product-kicker {
+    color: #9CA3AF;
+}
+
+:root.dark-mode .product-page .text-muted {
+    color: #9CA3AF !important;
+}
+
+/* Lista de ventajas (envío, devolución, garantía…) */
+:root.dark-mode .product-meta-list {
+    color: #E5E7EB;
+}
+
+:root.dark-mode .product-meta-item i {
+    color: #8FB7D9;
+}
+
+/* Nota aclaratoria */
+:root.dark-mode .product-note {
+    color: #9CA3AF;
+}
+
+/* Encabezado “Detalles del mouse” */
+:root.dark-mode .product-details-header h2 {
+    color: #F9FAFB;
+}
+
+:root.dark-mode .product-details-header p {
+    color: #9CA3AF;
+}
+
+/* Tarjeta de descripción + texto */
+:root.dark-mode .product-detail-title {
+    color: #F9FAFB;
+}
+
+:root.dark-mode .product-detail-text {
+    color: #E5E7EB;
+}
+
+/* Tabla de especificaciones */
+:root.dark-mode .product-spec-table {
+    color: #E5E7EB;
+}
+
+:root.dark-mode .product-spec-row+.product-spec-row {
+    border-color: #1F2937;
+}
+
+:root.dark-mode .product-spec-label {
+    color: #9CA3AF;
+}
+
+:root.dark-mode .product-spec-value {
+    color: #F9FAFB;
+}
+
+/* Tarjetas de “Envío y garantía” */
+:root.dark-mode .product-benefit-header {
+    color: #F9FAFB;
+}
+
+:root.dark-mode .product-benefit-text {
+    color: #9CA3AF;
+}
+
+/* ===== FOOTER EN MODO OSCURO ===== */
+:root.dark-mode .footer {
+    background-color: #2B2D31 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Textos e iconos del footer */
+:root.dark-mode .footer,
+:root.dark-mode .footer * {
+    color: #8FB7D9 !important;
+}
+
+/* =====================================
+   MODO OSCURO – CONTACTO
+   ===================================== */
+
+:root.dark-mode .contact-page {
+    background-color: #1E1F22;
+    color: #F2F3F5;
+}
+
+/* Tarjetas (form + mapa) */
+:root.dark-mode .contact-card {
+    background-color: #2B2D31;
+    box-shadow: none;
+}
+
+/* Títulos y textos principales */
+:root.dark-mode .contact-page h1,
+:root.dark-mode .contact-email a,
+:root.dark-mode .contact-email i,
+:root.dark-mode .contact-form .form-label {
+    color: #F2F3F5 !important;
+}
+
+/* Textos secundarios */
+:root.dark-mode .contact-page small {
+    color: #9CA3AF !important;
+}
+
+/* Inputs */
+:root.dark-mode .contact-form .form-control,
+:root.dark-mode .contact-form textarea {
+    background-color: #1A1B1E;
+    border-color: #4B5563;
+    color: #F2F3F5;
+
+    &::placeholder {
+        color: #9CA3AF;
+    }
+
+    &:focus {
+        border-color: #8FB7D9;
+        box-shadow: none;
+    }
+}
+
+/* Botón ENVIAR */
+:root.dark-mode .btn-contact {
+    background-color: #8FB7D9 !important;
+    border-color: #8FB7D9 !important;
+    color: #111 !important;
+
+    &:hover {
+        background-color: #74A4CC !important;
+        border-color: #74A4CC !important;
+    }
+}
+
+/* =====================================================
+      MODO OSCURO — MI CUENTA 
+   ===================================================== */
+
+:root.dark-mode .account-page {
+    background-color: #1E1F22;
+    color: #F2F3F5;
+}
+
+/* Contenedor general */
+:root.dark-mode .account-container {
+    border-color: #111827;
+}
+
+/* ====== TARJETAS ====== */
+:root.dark-mode .account-card {
+    background-color: #111827;
+    box-shadow: none;
+    color: #F2F3F5;
+}
+
+/* Títulos */
+:root.dark-mode .account-header h1,
+:root.dark-mode .account-card h2,
+:root.dark-mode .account-subtitle,
+:root.dark-mode .account-card label {
+    color: #F9FAFB;
+}
+
+:root.dark-mode .account-header p,
+:root.dark-mode .account-note {
+    color: #9CA3AF;
+}
+
+/* ====== INPUTS ====== */
+:root.dark-mode .account-input {
+    background-color: #020617;
+    border-color: #374151;
+    color: #E5E7EB;
+
+    &::placeholder {
+        color: #9CA3AF;
+    }
+
+    &:focus {
+        border-color: #8FB7D9;
+        box-shadow: none;
+    }
+}
+
+/* ====== BOTONES EDITAR / GUARDAR ====== */
+:root.dark-mode .account-edit-btn {
+    background-color: transparent;
+    border-radius: 999px;
+    border: 1px solid #4B5563;
+    color: #E5E7EB;
+    padding-inline: 1.2rem;
+
+    &:hover {
+        border-color: #8FB7D9;
+        color: #BFDBFE;
+    }
+}
+
+:root.dark-mode .account-save-btn {
+    background-color: #8FB7D9;
+    border-radius: 999px;
+    border: 1px solid #8FB7D9;
+    color: #111827;
+    padding-inline: 1.2rem;
+
+    &:hover {
+        background-color: #74A4CC;
+        border-color: #74A4CC;
+    }
+}
+
+/* Botón Restablecer Contraseña */
+:root.dark-mode .account-password-btn {
+    background-color: #8FB7D9;
+    border-color: #8FB7D9;
+    color: #111827;
+
+    &:hover {
+        background-color: #74A4CC;
+        border-color: #74A4CC;
+    }
+}
+
+/* =====================================================
+      TABLA — COMPRAS RECIENTES
+   ===================================================== */
+
+:root.dark-mode .account-card.account-card-full {
+    background-color: #111827;
+}
+
+/* Tabla base */
+:root.dark-mode .account-table {
+    width: 100%;
+    color: #E5E7EB;
+    background-color: transparent;
+}
+
+:root.dark-mode .account-card-full .text-muted,
+:root.dark-mode .account-card-full .account-table+.text-muted {
+    color: #9CA3AF !important;
+    opacity: 1 !important;
+}
+
+/* ENCABEZADO — BLANCO FUERTE */
+:root.dark-mode .account-table thead {
+    background-color: #020617;
+}
+
+:root.dark-mode .account-table thead th {
+    color: #FFFFFF !important;
+    font-weight: 600;
+    border-color: #111827;
+}
+
+/* Celdas */
+:root.dark-mode .account-table td {
+    border-color: #111827;
+    color: #E5E7EB;
+}
+
+/* Primera columna clara */
+:root.dark-mode .account-table tbody td:first-child {
+    color: #F3F4F6 !important;
+}
+
+/* Zebra suave */
+:root.dark-mode .account-table tbody tr {
+    background-color: #020617;
+}
+
+:root.dark-mode .account-table tbody tr:nth-child(even) {
+    background-color: #0B1120;
+}
+
+/* Links */
+:root.dark-mode .account-link {
+    color: #8FB7D9;
+
+    &:hover {
+        color: #BFDBFE;
+    }
+}
+
+/* ===== BADGES ===== */
+:root.dark-mode .status-badge {
+    color: #111827;
+}
+
+:root.dark-mode .status-badge--success {
+    background-color: #6EE7B7;
+}
+
+:root.dark-mode .status-badge--warning {
+    background-color: #FCD34D;
+}
+
+:root.dark-mode .status-badge--info {
+    background-color: #93C5FD;
+}

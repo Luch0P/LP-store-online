@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,8 @@
 
     <title>Todos los productos | Store LP</title>
     <meta name="description" content="Todos los productos de Store LP: periféricos, audio y accesorios.">
-    <meta name="keywords" content="todos los productos, store lp, periféricos, audio, accesorios">
+    <meta name="keywords"
+        content="todos los productos, store lp, periféricos, audio, accesorios, mouse, teclados, mousepads">
     <meta name="author" content="Lucho LP">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,8 +29,7 @@
             <div class="container">
 
                 <a class="navbar-brand" href="../index.html">
-                    <img src="../img/logostore.png" alt="Logo Store">
-                    <span>Store LP</span>
+                    <img src="../img/logos/lpstore.png" alt="Logo Store LP">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -44,6 +44,7 @@
                             <a class="nav-link" href="../index.html">Inicio</a>
                         </li>
 
+                        <!-- Dropdown categorías -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" href="#" id="categoriasDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,9 +52,10 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
                                 <li><a class="dropdown-item active" href="allprod.html">Todos los productos</a></li>
-                                <li><a class="dropdown-item" href="categoria1.html">Periféricos</a></li>
-                                <li><a class="dropdown-item" href="categoria2.html">Audio</a></li>
-                                <li><a class="dropdown-item" href="categoria3.html">Accesorios</a></li>
+                                <li><a class="dropdown-item" href="categoria-mouse.html">Mouse</a></li>
+                                <li><a class="dropdown-item" href="categoria-mousepad.html">Mousepad</a></li>
+                                <li><a class="dropdown-item" href="categoria-teclados.html">Teclado</a></li>
+                                <li><a class="dropdown-item" href="categoria-audio.html">Audio</a></li>
                             </ul>
                         </li>
 
@@ -73,15 +75,17 @@
 
                     <!-- Acciones derecha -->
                     <div class="navbar-actions d-flex align-items-center gap-2">
+                        <!-- Buscador mobile -->
                         <button class="icon-btn d-md-none" type="button">
                             <i class="bi bi-search"></i>
                         </button>
 
+                        <!-- 1) CUENTA -->
                         <a href="cuenta.html" class="icon-link">
                             <i class="bi bi-person"></i>
                         </a>
 
-                        <!-- CARRITO DROPDOWN -->
+                        <!-- 2) CARRITO -->
                         <div class="nav-item dropdown cart-dropdown">
                             <a class="icon-link dropdown-toggle position-relative" href="#" id="cartDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -99,17 +103,22 @@
 
                                 <div id="cart-items"></div>
 
-                                <div class="cart-menu-footer mt-2 pt-2 border-top">
+                                <div class="cart-menu-footer mt-2 pt-2 border-top d-flex justify-content-between">
                                     <span class="cart-total-label">Total:</span>
                                     <span id="cart-total" class="cart-total-price">$0</span>
                                 </div>
 
-                                <div class="cart-menu-actions mt-3">
+                                <div class="cart-menu-actions mt-3 d-flex gap-2">
                                     <button id="btn-empty-cart" class="btn btn-outline-dark btn-sm w-50">Vaciar</button>
                                     <button class="btn btn-dark btn-sm w-50">Comprar</button>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- 3) MODO OSCURO / CLARO -->
+                        <button id="themeToggle" class="icon-btn" type="button" aria-label="Cambiar tema">
+                            <i class="bi bi-moon"></i>
+                        </button>
                     </div>
 
                 </div>
@@ -121,147 +130,117 @@
     <!-- ================= MAIN ================= -->
     <main>
 
-        <!-- SOLO TÍTULO -->
+        <!-- HERO SOLO TÍTULO -->
         <section class="hero">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <h1>Todos los productos</h1>
-                </div>
-            </div>
-        </section>
-
-        <!-- CARRUSEL DE MARCAS -->
-        <section class="brands-strip">
             <div class="container">
-                <div class="brands-carousel">
-                    <div class="brands-track">
-                        <img src="../img/logos/redragon.png" alt="Redragon">
-                        <img src="../img/logos/hyperx.png" alt="HyperX">
-                        <img src="../img/logos/logitech.png" alt="Logitech">
-                        <img src="../img/logos/razer.png" alt="Razer">
-                        <img src="../img/logos/corsair.png" alt="Corsair">
-
-                        <img src="../img/logos/redragon.png" alt="Redragon">
-                        <img src="../img/logos/hyperx.png" alt="HyperX">
-                        <img src="../img/logos/logitech.png" alt="Logitech">
-                        <img src="../img/logos/razer.png" alt="Razer">
-                        <img src="../img/logos/corsair.png" alt="Corsair">
+                <div class="row align-items-center g-4">
+                    <div class="col-12">
+                        <div class="hero-text">
+                            <h1>Todos los productos</h1>
+                            <p>Periféricos, audio y accesorios en un solo lugar.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- =============== PERIFÉRICOS =============== -->
-        <section class="destacados">
+        <!-- CARRUSEL DE MARCAS  -->
+        <section class="brands-strip">
             <div class="container">
+                <div class="brands-carousel">
+                    <div class="brands-track">
+                        <!-- Secuencia 1 -->
+                        <img src="../img/logos/redragon.png" alt="Redragon">
+                        <img src="../img/logos/hyperx.png" alt="HyperX">
+                        <img src="../img/logos/logitech.png" alt="Logitech">
+                        <img src="../img/logos/razer.png" alt="Razer">
+                        <img src="../img/logos/corsair.png" alt="Corsair">
+                        <img src="../img/logos/asus.png" alt="Asus">
 
-                <div class="titulo-destacados">
-                    <h2>Periféricos</h2>
-                    <a href="categoria1.html" class="ver-todos">Ver todos los periféricos</a>
+                        <!-- Secuencia 2 -->
+                        <img src="../img/logos/redragon.png" alt="Redragon">
+                        <img src="../img/logos/hyperx.png" alt="HyperX">
+                        <img src="../img/logos/logitech.png" alt="Logitech">
+                        <img src="../img/logos/razer.png" alt="Razer">
+                        <img src="../img/logos/corsair.png" alt="Corsair">
+                        <img src="../img/logos/asus.png" alt="Asus">
+
+                        <!-- Secuencia 3 -->
+                        <img src="../img/logos/redragon.png" alt="Redragon">
+                        <img src="../img/logos/hyperx.png" alt="HyperX">
+                        <img src="../img/logos/logitech.png" alt="Logitech">
+                        <img src="../img/logos/razer.png" alt="Razer">
+                        <img src="../img/logos/corsair.png" alt="Corsair">
+                        <img src="../img/logos/asus.png" alt="Asus">
+                    </div>
                 </div>
-
-                <div class="productos-grid">
-                    <!-- Mouse (clickeable) -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <a href="productos/mouse.html" class="product-link">
-                                <img src="../img/productos/mouseblanco.jpeg" alt="Mouse inalámbrico blanco">
-                            </a>
-                        </div>
-                        <h3>
-                            <a href="productos/mouse.html" class="product-link">
-                                Mouse inalámbrico
-                            </a>
-                        </h3>
-                        <p class="descripcion">Diseño limpio y silencioso.</p>
-                        <p class="precio">$50.000</p>
-                        <button class="btn btn-dark btn-add-cart" data-id="mouse1" data-name="Mouse inalámbrico"
-                            data-price="50000">Agregar</button>
-                    </article>
-
-                    <!-- Teclado (clickeable) -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <a href="productos/teclado.html" class="product-link">
-                                <img src="../img/productos/teclado.jpeg" alt="Teclado mecánico">
-                            </a>
-                        </div>
-                        <h3>
-                            <a href="productos/teclado.html" class="product-link">
-                                Teclado mecánico
-                            </a>
-                        </h3>
-                        <p class="descripcion">Compacto y minimalista.</p>
-                        <p class="precio">$70.000</p>
-                        <button class="btn btn-dark btn-add-cart" data-id="teclado1" data-name="Teclado mecánico"
-                            data-price="70000">Agregar</button>
-                    </article>
-
-                    <!-- Periférico de ejemplo (no clickeable) -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Periférico ejemplo">
-                        </div>
-                        <h3>Periférico ejemplo</h3>
-                        <p class="descripcion">Solo demostrativo.</p>
-                        <p class="precio">$60.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
-                    </article>
-                </div>
-
             </div>
         </section>
 
-        <hr class="my-4">
-
-        <!-- =============== AUDIO =============== -->
+        <!-- =============== MOUSE =============== -->
         <section class="destacados">
             <div class="container">
 
                 <div class="titulo-destacados">
-                    <h2>Audio</h2>
-                    <a href="categoria2.html" class="ver-todos">Ver todo audio</a>
+                    <h2>Mouse</h2>
+                    <a href="categoria-mouse.html" class="ver-todos">Ver todos los mouse</a>
                 </div>
 
                 <div class="productos-grid">
-                    <!-- Auriculares (clickeable) -->
+
+                    <!-- 1. Mouse (EJ REAL, clickeable) -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <a href="productos/auriculares.html" class="product-link">
-                                <img src="../img/productos/aricularblanco.jpg" alt="Auriculares inalámbricos">
+                            <a href="productos/mouses/redragon-king.html" class="product-link">
+                                <img src="../img/productos/mouses/redragon-king.jpeg" alt="Redragon-King">
                             </a>
                         </div>
-                        <h3>
-                            <a href="productos/auriculares.html" class="product-link">
-                                Auriculares inalámbricos
-                            </a>
-                        </h3>
-                        <p class="descripcion">Sonido claro y simple.</p>
-                        <p class="precio">$100.000</p>
-                        <button class="btn btn-dark btn-add-cart" data-id="auris1" data-name="Auriculares inalámbricos"
-                            data-price="100000">Agregar</button>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Redragon</p>
+                            <h3 class="producto-nombre">
+                                <a href="productos/mouses/redragon-king.html" class="product-link">
+                                    KING PRO M916P WIRELESS
+                                </a>
+                            </h3>
+                            <p class="precio">$65</p>
+                            <button class="btn btn-dark btn-add-cart" data-id="mouse1" data-name="Redragon-King"
+                                data-price="65">
+                                Agregar
+                            </button>
+                        </div>
                     </article>
 
-                    <!-- Audio ejemplo 1 -->
+                    <!-- 2. Mouse ejemplo -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <img src="../img/productos/aricularblanco.jpg" alt="Audio ejemplo">
+                            <img src="../img/productos/mouses/logitech-superlightx2.png" alt="Logitech-Superlight2">
                         </div>
-                        <h3>Auriculares de estudio</h3>
-                        <p class="descripcion">Solo de muestra para la grilla.</p>
-                        <p class="precio">$120.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Logitech</p>
+                            <h3 class="producto-nombre">PRO X SUPERLIGHT 2</h3>
+                            <p class="precio">$179.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
                     </article>
 
-                    <!-- Audio ejemplo 2 -->
+                    <!-- 3. Mouse ejemplo -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <img src="../img/productos/aricularblanco.jpg" alt="Audio ejemplo">
+                            <img src="../img/productos/mouses/razer-v3pro.jpg" alt="Razer-v3">
                         </div>
-                        <h3>Auriculares gaming</h3>
-                        <p class="descripcion">Ejemplo de producto de audio.</p>
-                        <p class="precio">$110.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Razer</p>
+                            <h3 class="producto-nombre">VIPER V3 PRO</h3>
+                            <p class="precio">$139.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
                     </article>
                 </div>
 
@@ -275,42 +254,199 @@
             <div class="container">
 
                 <div class="titulo-destacados">
-                    <h2>MousePads</h2>
-                    <a href="categoria3.html" class="ver-todos">Ver todos los Mousepads</a>
+                    <h2>Mousepads</h2>
+                    <a href="categoria-mousepad.html" class="ver-todos">Ver todos los mousepads</a>
                 </div>
 
                 <div class="productos-grid">
-                    <!-- Mousepad ejemplo 1 -->
+                    <!-- 1. Mousepad ejemplo -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad ejemplo">
+                            <img src="../img/productos/mousepad/corsair-medium.webp" alt="corsair-medium">
                         </div>
-                        <h3>Mousepad extendido</h3>
-                        <p class="descripcion">Ejemplo de accesorio para el setup.</p>
-                        <p class="precio">$35.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Corsair</p>
+                            <h3 class="producto-nombre">MM30 MEDIUM</h3>
+                            <p class="precio">$29.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
                     </article>
 
-                    <!-- Mousepad ejemplo 2 -->
+                    <!-- 2. Mousepad ejemplo -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad ejemplo">
+                            <img src="../img/productos/mousepad/hyperx-furys-large.jpg" alt="hyperx-furys-large">
                         </div>
-                        <h3>Mousepad minimal</h3>
-                        <p class="descripcion">Solo demostrativo.</p>
-                        <p class="precio">$28.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">HyperX</p>
+                            <h3 class="producto-nombre">FURY S PRO XL</h3>
+                            <p class="precio">$39.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
                     </article>
 
-                    <!-- Mousepad ejemplo 3 -->
+                    <!-- 3. Mousepad ejemplo -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <img src="../img/productos/mouseblanco.jpeg" alt="Mousepad ejemplo">
+                            <img src="../img/productos/mousepad/hyperx-furyultra.webp" alt="HyperX-FuryUltra">
                         </div>
-                        <h3>Mousepad liso</h3>
-                        <p class="descripcion">Otro ejemplo para completar la sección.</p>
-                        <p class="precio">$30.000</p>
-                        <button class="btn btn-dark disabled">Agregar</button>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">HyperX</p>
+                            <h3 class="producto-nombre">FURY ULTRA RGB LED</h3>
+                            <p class="precio">$39.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="my-4">
+
+        <!-- =============== TECLADOS =============== -->
+        <section class="destacados">
+            <div class="container">
+
+                <div class="titulo-destacados">
+                    <h2>Teclados</h2>
+                    <a href="categoria-teclados.html" class="ver-todos">Ver todos los teclados</a>
+                </div>
+
+                <div class="productos-grid">
+
+                    <!-- 1. Teclado (EJ REAL, clickeable) -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <a href="productos/teclados/asus-m701.html" class="product-link">
+                                <img src="../img/productos/teclados/asus-m701.jpg" alt="Asus-M701">
+                            </a>
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Asus ROG</p>
+                            <h3 class="producto-nombre">
+                                <a href="productos/teclados/asus-m701.html" class="product-link">
+                                    ROG STRIX M701 AZOTH RGB WIRELESS
+                                </a>
+                            </h3>
+                            <p class="precio">$274.99</p>
+                            <button class="btn btn-dark btn-add-cart" data-id="tecladoM701" data-name="asus-m701"
+                                data-price="274.99">
+                                Agregar
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 2. Teclado ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/teclados/razer-hm.jpeg" alt="Razer-HM">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Razer</p>
+                            <h3 class="producto-nombre">HUNTSMAN MINI 60</h3>
+                            <p class="precio">$119.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 3. Teclado ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/teclados/logitech-g715.jpeg" alt="Aurora-G715">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Logitech</p>
+                            <h3 class="producto-nombre"> AURORA G715 WIRELESS LIGHTSPEED RGB</h3>
+                            <p class="precio">$229.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="my-4">
+
+        <!-- =============== AUDIO =============== -->
+        <section class="destacados">
+            <div class="container">
+
+                <div class="titulo-destacados">
+                    <h2>Audio</h2>
+                    <a href="categoria-audio.html" class="ver-todos">Ver todo audio</a>
+                </div>
+
+                <div class="productos-grid">
+                    <!-- Auriculares (clickeable) -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <a href="productos/auriculares.html" class="product-link">
+                                <img src="../img/productos/aricularblanco.jpg" alt="Auriculares inalámbricos">
+                            </a>
+                        </div>
+                        <div class="producto-body">
+                            <p class="producto-marca">Corsair</p>
+                            <h3 class="producto-nombre">
+                                <a href="productos/auriculares.html" class="product-link">
+                                    Auriculares inalámbricos
+                                </a>
+                            </h3>
+                            <p class="precio">$100.000</p>
+                            <button class="btn btn-dark btn-add-cart" data-id="auris1"
+                                data-name="Auriculares inalámbricos" data-price="100000">
+                                Agregar
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Audio ejemplo 1 -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Audio ejemplo">
+                        </div>
+                        <div class="producto-body">
+                            <p class="producto-marca">Genérico</p>
+                            <h3 class="producto-nombre">Auriculares de estudio</h3>
+                            <p class="precio">$120.000</p>
+                            <button class="btn btn-dark disabled">
+                                Agregar
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Audio ejemplo 2 -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/aricularblanco.jpg" alt="Audio ejemplo">
+                        </div>
+                        <div class="producto-body">
+                            <p class="producto-marca">Genérico</p>
+                            <h3 class="producto-nombre">Auriculares gaming</h3>
+                            <p class="precio">$110.000</p>
+                            <button class="btn btn-dark disabled">
+                                Agregar
+                            </button>
+                        </div>
                     </article>
                 </div>
 
@@ -321,14 +457,40 @@
 
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
-        <div class="container footer-content">
-            <p class="mb-1">© 2025 Nombre Store. Todos los derechos reservados.</p>
-            <p class="mb-0 text-muted">Sitio creado por LP.</p>
+        <div
+            class="container footer-content d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <!-- Izquierda -->
+            <div class="footer-left">
+                <p class="mb-1">© 2025 Store LP. Todos los derechos reservados.</p>
+            </div>
+
+            <!-- Derecha -->
+            <div class="footer-right text-md-end text-center">
+                <p class="mb-1 text-muted">Sitio creado por LP.</p>
+
+                <div
+                    class="footer-social d-flex align-items-center justify-content-md-end justify-content-center gap-2">
+                    <span class="footer-social-label">Nuestras redes:</span>
+
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="https://x.com/" target="_blank" aria-label="X (Twitter)">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- JS global del tema (modo oscuro / claro) -->
+    <script src="../scripts/theme.js"></script>
 </body>
 
 </html>

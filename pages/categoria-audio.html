@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Audio | Store LP</title>
+    <meta name="description" content="Auriculares y audio de Store LP para gaming, estudio y uso diario.">
+    <meta name="keywords" content="audio, auriculares, cascos, gamer, musica, store lp">
+    <meta name="author" content="Lucho LP">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <nav class="navbar custom-navbar navbar-expand-md">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../img/logos/lpstore.png" alt="Logo Store LP">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Inicio</a>
+                        </li>
+
+                        <!-- Dropdown categorías  -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="categoriasDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
+                                <li><a class="dropdown-item" href="allprod.html">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="categoria-mouse.html">Mouse</a></li>
+                                <li><a class="dropdown-item" href="categoria-mousepad.html">Mousepad</a></li>
+                                <li><a class="dropdown-item" href="categoria-teclados.html">Teclado</a></li>
+                                <li><a class="dropdown-item active" href="categoria-audio.html">Audio</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <!-- Buscador -->
+                    <form class="nav-search d-none d-md-flex" role="search">
+                        <input class="nav-search-input" type="search" placeholder="Buscar productos..."
+                            aria-label="Buscar">
+                        <button class="nav-search-btn" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+
+                    <!-- Acciones derecha -->
+                    <div class="navbar-actions d-flex align-items-center gap-2">
+                        <!-- Buscador mobile -->
+                        <button class="icon-btn d-md-none" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <!-- Cuenta -->
+                        <a href="cuenta.html" class="icon-link">
+                            <i class="bi bi-person"></i>
+                        </a>
+
+                        <!-- Carrito -->
+                        <div class="nav-item dropdown cart-dropdown">
+                            <a class="icon-link dropdown-toggle position-relative" href="#" id="cartDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-cart"></i>
+                                <span id="cart-count" class="cart-count-badge">0</span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end cart-menu p-3" aria-labelledby="cartDropdown">
+                                <div class="cart-menu-header d-flex justify-content-between mb-2">
+                                    <span>Carrito</span>
+                                    <span id="mini-count" class="cart-count">0 items</span>
+                                </div>
+
+                                <p id="cart-empty-text" class="text-muted small">El carrito está vacío.</p>
+
+                                <div id="cart-items"></div>
+
+                                <div class="cart-menu-footer mt-2 pt-2 border-top d-flex justify-content-between">
+                                    <span class="cart-total-label">Total:</span>
+                                    <span id="cart-total" class="cart-total-price">$0</span>
+                                </div>
+
+                                <div class="cart-menu-actions mt-3 d-flex gap-2">
+                                    <button id="btn-empty-cart" class="btn btn-outline-dark btn-sm w-50">Vaciar</button>
+                                    <button class="btn btn-dark btn-sm w-50">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modo oscuro / claro -->
+                        <button id="themeToggle" class="icon-btn" type="button" aria-label="Cambiar tema">
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <div class="row align-items-center g-4">
+
+                    <!-- Texto -->
+                    <div class="col-lg-5 col-md-6">
+                        <div class="hero-text">
+                            <h1>AUDIO</h1>
+                            <p>Auriculares wireless y con cable listos para mejorar TODO: más comodidad, más claridad y
+                                un sonido que te envuelve.</p>
+                            <a href="#audio" class="btn btn-dark">Ver todo Audio</a>
+                        </div>
+                    </div>
+
+                    <!-- Banner -->
+                    <div class="col-lg-7 col-md-6">
+                        <div class="hero-banner-box">
+                            <img src="../img/logos/banneraudio.png" alt="Audio Store LP" class="hero-banner-img">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID AUDIO -->
+        <section id="audio" class="destacados">
+            <div class="container">
+
+                <div class="titulo-destacados">
+                    <h2>Todos los productos de audio</h2>
+                    <a href="allprod.html" class="ver-todos">Volver a todos los productos</a>
+                </div>
+
+                <div class="productos-grid">
+
+                    <!-- 1. Auriculares (EJ REAL, clickeable) -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <a href="productos/audio/hyperx-cloud2.html" class="product-link">
+                                <img src="../img/productos/audio/hyperx-cloud2.jpg" alt="Hyperx-cloud2">
+                            </a>
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">HyperX</p>
+                            <h3 class="producto-nombre">
+                                <a href="productos/audio/hyperx-cloud2.html" class="product-link">
+                                    CLOUD 2 WIRELESS
+                                </a>
+                            </h3>
+                            <p class="precio">$100</p>
+                            <button class="btn btn-dark btn-add-cart" data-id="auris1"
+                                data-name="Auriculares inalámbricos" data-price="100">
+                                Agregar
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 2. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/audio/hyperx-cloudflight.webp" alt="Cloud-flight">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">HyperX</p>
+                            <h3 class="producto-nombre">CLOUD FLIGHT WIRELESS</h3>
+                            <p class="precio">$89.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 3. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/audio/hyperx-cloudstinger2.jpg" alt="Hyperx-Cloud-Stinger">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">HyerpX</p>
+                            <h3 class="producto-nombre">CLOUD STINGER 2</h3>
+                            <p class="precio">$49.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 4. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/audio/logitech-g435.jpeg" alt="Logitech-G435">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Logitech</p>
+                            <h3 class="producto-nombre">G435 WIRELESS</h3>
+                            <p class="precio">$79.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 5. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/audio/razer-blacksharkv2.jpg" alt="razer-blacksharkv2">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Razer</p>
+                            <h3 class="producto-nombre">BLACKSHARK V2</h3>
+                            <p class="precio">$89.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 6. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/audio/corsair-virtuoso.jpg" alt="Corsair-Virtuoso">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Corsair</p>
+                            <h3 class="producto-nombre">VIRTUOSO RGB WIRELESS</h3>
+                            <p class="precio">$180</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 7. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/audio/asus-rog-deltas.jpg" alt="Asus-Rog-DeltaS">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">ASUS ROG</p>
+                            <h3 class="producto-nombre">Delta S Core 7.1 Wired</h3>
+                            <p class="precio">$79.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 8. Auriculares ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/audio/redragon-zeush510.jpeg" alt="Redragon-Zeus-H510">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Redragon</p>
+                            <h3 class="producto-nombre">ZEUS X H510</h3>
+                            <p class="precio">$35</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div
+            class="container footer-content d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <!-- Izquierda -->
+            <div class="footer-left">
+                <p class="mb-1">© 2025 Store LP. Todos los derechos reservados.</p>
+            </div>
+
+            <!-- Derecha -->
+            <div class="footer-right text-md-end text-center">
+                <p class="mb-1 text-muted">Sitio creado por LP.</p>
+
+                <div
+                    class="footer-social d-flex align-items-center justify-content-md-end justify-content-center gap-2">
+                    <span class="footer-social-label">Nuestras redes:</span>
+
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="https://x.com/" target="_blank" aria-label="X (Twitter)">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS global del tema (modo oscuro / claro) -->
+    <script src="../scripts/theme.js"></script>
+
+</body>
+
+</html>

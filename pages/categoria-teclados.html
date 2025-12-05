@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LP Store | Periféricos y accesorios</title>
-    <meta name="description" content="Tienda de periféricos, audio y accesorios.">
-    <meta name="keywords" content="tienda, periféricos, teclados, mouse, auriculares, accesorios">
+    <title>Teclados | Store LP</title>
+    <meta name="description" content="Teclados de Store LP: mecánicos, TKL y low profile.">
+    <meta name="keywords" content="teclado, mecánico, gamer, setup, store lp">
     <meta name="author" content="Lucho LP">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body>
@@ -27,8 +27,9 @@
         <nav class="navbar custom-navbar navbar-expand-md">
             <div class="container">
 
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logos/lpstore.png" alt="Logo LP Store">
+                <!-- Logo -->
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../img/logos/lpstore.png" alt="Logo Store LP">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -40,38 +41,26 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Inicio</a>
+                            <a class="nav-link" href="../index.html">Inicio</a>
                         </li>
 
-                        <!-- ===== CATEGORÍAS ===== -->
+                        <!-- Dropdown categorías -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button"
+                            <a class="nav-link dropdown-toggle active" href="#" id="categoriasDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Categorías
                             </a>
-
                             <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-
-                                <!-- 1) Todos -->
-                                <li><a class="dropdown-item" href="pages/allprod.html">Todos los productos</a></li>
-
-                                <!-- 2) Mouse -->
-                                <li><a class="dropdown-item" href="pages/categoria-mouse.html">Mouse</a></li>
-
-                                <!-- 3) Mousepad -->
-                                <li><a class="dropdown-item" href="pages/categoria-mousepad.html">Mousepad</a></li>
-
-                                <!-- 4) Teclado -->
-                                <li><a class="dropdown-item" href="pages/categoria-teclados.html">Teclado</a></li>
-
-                                <!-- 5) Audio -->
-                                <li><a class="dropdown-item" href="pages/categoria-audio.html">Audio</a></li>
-
+                                <li><a class="dropdown-item" href="allprod.html">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="categoria-mouse.html">Mouse</a></li>
+                                <li><a class="dropdown-item" href="categoria-mousepad.html">Mousepad</a></li>
+                                <li><a class="dropdown-item active" href="categoria-teclados.html">Teclado</a></li>
+                                <li><a class="dropdown-item" href="categoria-audio.html">Audio</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/contacto.html">Contacto</a>
+                            <a class="nav-link" href="contacto.html">Contacto</a>
                         </li>
                     </ul>
 
@@ -92,7 +81,7 @@
                         </button>
 
                         <!-- Cuenta -->
-                        <a href="pages/cuenta.html" class="icon-link">
+                        <a href="cuenta.html" class="icon-link">
                             <i class="bi bi-person"></i>
                         </a>
 
@@ -113,6 +102,7 @@
 
                                 <p id="cart-empty-text" class="text-muted small">El carrito está vacío.</p>
 
+                                <!-- Items del carrito (Ejemplo nomas, no fucional) -->
                                 <div id="cart-items"></div>
 
                                 <div class="cart-menu-footer mt-2 pt-2 border-top d-flex justify-content-between">
@@ -124,11 +114,10 @@
                                     <button id="btn-empty-cart" class="btn btn-outline-dark btn-sm w-50">Vaciar</button>
                                     <button class="btn btn-dark btn-sm w-50">Comprar</button>
                                 </div>
-
                             </div>
                         </div>
 
-                        <!-- Modo claro/oscuro -->
+                        <!-- Modo oscuro / claro -->
                         <button id="themeToggle" class="icon-btn" type="button" aria-label="Cambiar tema">
                             <i class="bi bi-moon"></i>
                         </button>
@@ -148,17 +137,19 @@
             <div class="container">
                 <div class="row align-items-center g-4">
 
+                    <!-- Texto -->
                     <div class="col-lg-5 col-md-6">
                         <div class="hero-text">
-                            <h1>LP Store</h1>
-                            <p>Mouses, Teclados, Audio y Mousepads.</p>
-                            <a href="pages/allprod.html" class="btn btn-dark">Ver catálogo completo</a>
+                            <h1>Teclados</h1>
+                            <p>Teclados mecánicos y ópticos en formatos 60%, TKL y low-profile</p>
+                            <a href="#teclados" class="btn btn-dark">Ver todos los teclados</a>
                         </div>
                     </div>
 
+                    <!-- Banner -->
                     <div class="col-lg-7 col-md-6">
                         <div class="hero-banner-box">
-                            <img src="img/logos/bannerhome.jpg" alt="Banner LP Store" class="hero-banner-img">
+                            <img src="../img/logos/bannerteclados.png" alt="Teclados Store LP" class="hero-banner-img">
                         </div>
                     </div>
 
@@ -166,82 +157,29 @@
             </div>
         </section>
 
-        <!-- FRANJA DE MARCAS -->
-        <section class="brands-strip">
-            <div class="container">
-                <div class="brands-carousel">
-                    <div class="brands-track">
-                        <!-- Secuencia 1 -->
-                        <img src="img/logos/redragon.png" alt="Redragon">
-                        <img src="img/logos/hyperx.png" alt="HyperX">
-                        <img src="img/logos/logitech.png" alt="Logitech">
-                        <img src="img/logos/razer.png" alt="Razer">
-                        <img src="img/logos/corsair.png" alt="Corsair">
-                        <img src="img/logos/asus.png" alt="Asus">
-
-                        <!-- Secuencia 2 -->
-                        <img src="img/logos/redragon.png" alt="Redragon">
-                        <img src="img/logos/hyperx.png" alt="HyperX">
-                        <img src="img/logos/logitech.png" alt="Logitech">
-                        <img src="img/logos/razer.png" alt="Razer">
-                        <img src="img/logos/corsair.png" alt="Corsair">
-                        <img src="img/logos/asus.png" alt="Asus">
-
-                        <!-- Secuencia 3 -->
-                        <img src="img/logos/redragon.png" alt="Redragon">
-                        <img src="img/logos/hyperx.png" alt="HyperX">
-                        <img src="img/logos/logitech.png" alt="Logitech">
-                        <img src="img/logos/razer.png" alt="Razer">
-                        <img src="img/logos/corsair.png" alt="Corsair">
-                        <img src="img/logos/asus.png" alt="Asus">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRODUCTOS DESTACADOS -->
-        <section id="destacados" class="destacados">
+        <!-- GRID TECLADOS -->
+        <section id="teclados" class="destacados">
             <div class="container">
 
                 <div class="titulo-destacados">
-                    <h2>Productos destacados</h2>
-                    <a href="pages/allprod.html" class="ver-todos">Ver todos</a>
+                    <h2>Todos los teclados</h2>
+                    <a href="allprod.html" class="ver-todos">Ver todos los productos</a>
                 </div>
 
                 <div class="productos-grid">
 
-                    <!-- Mouse destacado -->
+                    <!-- 1. Teclado (EJ REAL, clickeable) -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <a href="pages/productos/mouses/redragon-king.html" class="product-link">
-                                <img src="img/productos/mouses/redragon-king.jpeg" alt="Redragon-King">
-                            </a>
-                        </div>
-
-                        <div class="producto-body">
-                            <p class="producto-marca">Redragon</p>
-                            <h3 class="producto-nombre">
-                                <a href="pages/productos/mouses/redragon-king.html" class="product-link">
-                                    KING PRO M916P WIRELESS
-                                </a>
-                            </h3>
-                            <p class="precio">$65</p>
-                            <button class="btn btn-dark btn-add-cart">Agregar</button>
-                        </div>
-                    </article>
-
-                    <!-- Teclado destacado -->
-                    <article class="producto-card">
-                        <div class="producto-img">
-                            <a href="pages/productos/teclados/asus-m701.html" class="product-link">
-                                <img src="img/productos/teclados/asus-m701.jpg" alt="Asus-M701">
+                            <a href="productos/teclados/asus-m701.html" class="product-link">
+                                <img src="../img/productos/teclados/asus-m701.jpg" alt="Asus-M701">
                             </a>
                         </div>
 
                         <div class="producto-body">
                             <p class="producto-marca">Asus ROG</p>
                             <h3 class="producto-nombre">
-                                <a href="pages/productos/teclados/asus-m701.html" class="product-link">
+                                <a href="productos/teclados/asus-m701.html" class="product-link">
                                     ROG STRIX M701 AZOTH RGB WIRELESS
                                 </a>
                             </h3>
@@ -253,23 +191,115 @@
                         </div>
                     </article>
 
-                    <!-- Auriculares destacados -->
+                    <!-- 2. Teclado ejemplo -->
                     <article class="producto-card">
                         <div class="producto-img">
-                            <a href="pages/productos/audio/hyperx-cloud2.html" class="product-link">
-                                <img src="img/productos/audio/hyperx-cloud2.jpg" alt="HyperX-Cloud2">
-                            </a>
+                            <img src="../img/productos/teclados/razer-hm.jpeg" alt="Razer-HM">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Razer</p>
+                            <h3 class="producto-nombre">HUNTSMAN MINI 60</h3>
+                            <p class="precio">$119.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 3. Teclado ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/teclados/logitech-g715.jpeg" alt="Aurora-G715">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Logitech</p>
+                            <h3 class="producto-nombre"> AURORA G715 WIRELESS LIGHTSPEED RGB</h3>
+                            <p class="precio">$229.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 4. Teclado ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/teclados/corsair-k70.jpg" alt="Corsair-K70">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Corsair</p>
+                            <h3 class="producto-nombre">K70 PRO RGB</h3>
+                            <p class="precio">$129.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 5. Teclado ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/teclados/hyperx-origins.jpg" alt="Hyperx-Origins">
                         </div>
 
                         <div class="producto-body">
                             <p class="producto-marca">HyperX</p>
-                            <h3 class="producto-nombre">
-                                <a href="pages/productos/audio/hyperx-cloud2.html" class="product-link">
-                                    CLOUD 2 WIRELESS
-                                </a>
-                            </h3>
-                            <p class="precio">$100</p>
-                            <button class="btn btn-dark btn-add-cart">Agregar</button>
+                            <h3 class="producto-nombre">ALLOW ORIGINS CORE SWITCH RED</h3>
+                            <p class="precio">$110</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 6. Teclado ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/teclados/hyperx-origins60.jpg" alt="HyperX-Origins60">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">HyperX</p>
+                            <h3 class="producto-nombre">ALLOY ORIGINS RGB 60 SWITCH RED</h3>
+                            <p class="precio">$90</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 7. Teclado ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/teclados/logitech-g915.jpg" alt="logitech-G915">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Logitech</p>
+                            <h3 class="producto-nombre">G915 X LIGHTSPEED RGB WIRELESS</h3>
+                            <p class="precio">$159.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 8. Teclado ejemplo -->
+                    <article class="producto-card">
+                        <div class="producto-img">
+                            <img src="../img/productos/teclados/redragon-k552.jpg" alt="Redragon-K552">
+                        </div>
+
+                        <div class="producto-body">
+                            <p class="producto-marca">Redragon</p>
+                            <h3 class="producto-nombre">KUMARA K552 RGB</h3>
+                            <p class="precio">$49.99</p>
+                            <button class="btn btn-dark disabled">
+                                Sin Stock
+                            </button>
                         </div>
                     </article>
 
@@ -284,10 +314,12 @@
     <footer class="footer">
         <div
             class="container footer-content d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <!-- Izquierda -->
             <div class="footer-left">
-                <p class="mb-1">© 2025 LP Store. Todos los derechos reservados.</p>
+                <p class="mb-1">© 2025 Store LP. Todos los derechos reservados.</p>
             </div>
 
+            <!-- Derecha -->
             <div class="footer-right text-md-end text-center">
                 <p class="mb-1 text-muted">Sitio creado por LP.</p>
 
@@ -311,11 +343,10 @@
         </div>
     </footer>
 
-    <!-- JS Bootstrap -->
+    <!-- JS de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JS Tema -->
-    <script src="scripts/theme.js"></script>
+    <!-- JS global del tema (modo oscuro / claro) -->
+    <script src="../scripts/theme.js"></script>
 
 </body>
 
